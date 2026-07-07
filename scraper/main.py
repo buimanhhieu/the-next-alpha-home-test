@@ -22,25 +22,18 @@ import logging
 import os
 import sys
 
-# ── Ensure the scraper package directory is on PYTHONPATH ────────────────────
 sys.path.insert(0, os.path.dirname(__file__))
 
 from config import (
     ARTICLES_DIR,
     LOG_LEVEL,
     OPENAI_API_KEY,
+    GEMINI_API_KEY,
+    AI_PROVIDER,
 )
 from zendesk_scraper import ZendeskScraper
 from markdown_converter import html_to_markdown
 from delta_tracker import DeltaTracker, DeltaStatus
-from openai_uploader import (
-    get_or_create_vector_store,
-    get_or_create_assistant,
-    upload_file,
-    delete_file,
-    get_vector_store_stats,
-    chat_with_assistant,
-)
 
 # ── Logging setup ─────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -51,17 +44,95 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+def _load_provider():
+    """Load the correct uploader based on AI_PROVIDER setting."""
+    if AI_PROVIDER == "openai":
+        from openai_uploader import (
+            get_or_create_vector_store,
+            get_or_create_assistant,
+            upload_file,
+            delete_file,
+            get_vector_store_stats,
+            chat_with_assistant,
+        )
+        return "openai", {
+            "get_or_create_store":    get_or_create_vector_store,
+            "get_or_create_assistant": get_or_create_assistant,
+            "upload_file":            upload_file,
+            "delete_file":            delete_file,
+            "get_stats":              get_vector_store_stats,
+            "chat":                   lambda asst_id, msg: chat_with_assistant(asst_id, msg),
+        }
+    else:
+        # Default: Gemini (free)
+        from gemini_uploader import (
+            upload_file_to_gemini,
+            delete_file_from_gemini,
+            upsert_to_chroma,
+            delete_from_chroma,
+            chat_with_gemini,
+            get_stats,
+        )
+        return "gemini", {
+            "get_or_create_store":     lambda: "chroma-local",
+            "get_or_create_assistant": lambda vs_id: "gemini-flash",
+            "upload_file":             lambda path, vs_id: _gemini_upload_and_embed(path, upload_file_to_gemini, upsert_to_chroma),
+            "delete_file":             lambda file_id, vs_id: _gemini_delete(file_id, delete_file_from_gemini, delete_from_chroma),
+            "get_stats":               lambda vs_id: get_stats(),
+            "chat":                    lambda asst_id, msg: chat_with_gemini(msg),
+        }
+
+
+def _gemini_upload_and_embed(path, upload_fn, embed_fn):
+    """Upload to Gemini Files API + embed into ChromaDB. Returns composite file_id."""
+    import json
+    result = upload_fn(path)
+    file_name = result["name"]   # e.g. "files/abc123"
+
+    # Read markdown to embed
+    with open(path, encoding="utf-8") as f:
+        md = f.read()
+    # Extract title + url from first 2 lines
+    lines = md.split("\n")
+    title = lines[0].lstrip("# ").strip() if lines else ""
+    url   = ""
+    for line in lines[1:5]:
+        if "**Source:**" in line:
+            url = line.replace("**Source:**", "").strip()
+            break
+
+    article_id = os.path.splitext(os.path.basename(path))[0]
+    embed_fn(article_id, md, url, title)
+    return file_name   # used as "file_id" in delta DB
+
+
+def _gemini_delete(file_id, delete_gemini_fn, delete_chroma_fn):
+    """Delete from both Gemini Files API and ChromaDB."""
+    if file_id and file_id.startswith("files/"):
+        delete_gemini_fn(file_id)
+    # ChromaDB key is the slug (basename of file), stored differently
+    # Delta tracker handles this via article_id
+
+
 # ── Pipeline ──────────────────────────────────────────────────────────────────
 
 def run_pipeline(test_mode: bool = False):
     logger.info("=" * 60)
     logger.info("OptiSigns Support Bot – Sync Pipeline Starting")
+    logger.info("Provider: %s", AI_PROVIDER.upper())
     logger.info("=" * 60)
 
     # Validate config
-    if not OPENAI_API_KEY:
-        logger.error("OPENAI_API_KEY is not set. Please configure your .env file.")
+    if AI_PROVIDER == "openai" and not OPENAI_API_KEY:
+        logger.error("OPENAI_API_KEY is not set. Set AI_PROVIDER=gemini for the free option.")
         sys.exit(1)
+    if AI_PROVIDER == "gemini" and not GEMINI_API_KEY:
+        logger.error("GEMINI_API_KEY is not set. Get a free key at https://aistudio.google.com/app/apikey")
+        sys.exit(1)
+
+    # Load provider functions
+    provider_name, fn = _load_provider()
+    logger.info("[Provider] Using: %s", provider_name)
 
     os.makedirs(ARTICLES_DIR, exist_ok=True)
 
@@ -109,10 +180,10 @@ def run_pipeline(test_mode: bool = False):
         len(added_list), len(updated_list), skipped_count,
     )
 
-    # ── Step 5: Upload to OpenAI ──────────────────────────────────────────────
-    logger.info("[Step 4] Uploading changed files to OpenAI …")
-    vs_id    = get_or_create_vector_store()
-    asst_id  = get_or_create_assistant(vs_id)
+    # ── Step 5: Upload to provider ────────────────────────────────────────────
+    logger.info("[Step 4] Uploading changed files to %s …", provider_name.upper())
+    vs_id   = fn["get_or_create_store"]()
+    asst_id = fn["get_or_create_assistant"](vs_id)
 
     upload_count = 0
     error_count  = 0
@@ -120,14 +191,14 @@ def run_pipeline(test_mode: bool = False):
     # Handle Added articles
     for article_id, md, article, path, result in added_list:
         try:
-            file_id = upload_file(path, vs_id)
+            file_id = fn["upload_file"](path, vs_id)
             tracker.mark_synced(
                 article_id=article_id,
                 slug=article.slug,
                 url=article.html_url,
                 markdown=md,
                 updated_at=article.updated_at,
-                openai_file_id=file_id,
+                openai_file_id=str(file_id),
             )
             upload_count += 1
             logger.info("[Upload] ✅ Added  '%s'  →  %s", article.title, file_id)
@@ -138,20 +209,19 @@ def run_pipeline(test_mode: bool = False):
     # Handle Updated articles
     for article_id, md, article, path, result in updated_list:
         try:
-            # Delete old file first
             old_file_id = tracker.get_openai_file_id(article_id)
             if old_file_id:
-                delete_file(old_file_id, vs_id)
+                fn["delete_file"](old_file_id, vs_id)
                 logger.debug("[Upload] Deleted old file %s for '%s'", old_file_id, article.title)
 
-            file_id = upload_file(path, vs_id)
+            file_id = fn["upload_file"](path, vs_id)
             tracker.mark_synced(
                 article_id=article_id,
                 slug=article.slug,
                 url=article.html_url,
                 markdown=md,
                 updated_at=article.updated_at,
-                openai_file_id=file_id,
+                openai_file_id=str(file_id),
             )
             upload_count += 1
             logger.info("[Upload] 🔄 Updated '%s'  →  %s", article.title, file_id)
@@ -161,27 +231,25 @@ def run_pipeline(test_mode: bool = False):
 
     tracker.close()
 
-    # ── Step 6: Stats ─────────────────────────────────────────────────────────
-    stats = get_vector_store_stats(vs_id)
-    total_files = stats.get("total_files", upload_count)
+    # ── Step 6: Stats ─────────────────────────────────────────────────────
+    stats = fn["get_stats"](vs_id)
+    total_docs = stats.get("total_files", stats.get("total_docs_in_vector_store", upload_count))
 
     logger.info("=" * 60)
-    logger.info("Sync Complete")
+    logger.info("Sync Complete  [%s]", provider_name.upper())
     logger.info("  Files uploaded this run : %d", upload_count)
-    logger.info("  Files in vector store   : %d", total_files)
+    logger.info("  Docs in vector store    : %d", total_docs)
     logger.info("  Errors                  : %d", error_count)
     logger.info("  Added   : %d", len(added_list))
     logger.info("  Updated : %d", len(updated_list))
     logger.info("  Skipped : %d", skipped_count)
-    logger.info("  Assistant ID            : %s", asst_id)
-    logger.info("  Vector Store ID         : %s", vs_id)
     logger.info("=" * 60)
 
-    # ── Step 7 (optional): Test Question ─────────────────────────────────────
+    # ── Step 7 (optional): Test Question ────────────────────────────────────
     if test_mode:
         test_question = "How do I add a YouTube video?"
         logger.info("[Test] Asking assistant: '%s'", test_question)
-        result = chat_with_assistant(asst_id, test_question)
+        result = fn["chat"](asst_id, test_question)
         print("\n" + "=" * 60)
         print(f"Q: {test_question}")
         print("-" * 60)
