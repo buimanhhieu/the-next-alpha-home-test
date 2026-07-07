@@ -39,7 +39,7 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add scraper/data/ scraper/articles/ || true
+          git add -f scraper/data/ scraper/articles/ || true
           
           if [ -n "$(git status --porcelain)" ]; then
             git commit -m "chore: auto-update articles and delta db [skip ci]"
