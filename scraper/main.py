@@ -84,26 +84,33 @@ def _load_provider():
 
 
 def _gemini_upload_and_embed(path, upload_fn, embed_fn):
-    """Upload to Gemini Files API + embed into ChromaDB. Returns composite file_id."""
-    import json
-    result = upload_fn(path)
-    file_name = result["name"]   # e.g. "files/abc123"
-
-    # Read markdown to embed
+    """
+    1. Read markdown + extract metadata
+    2. Upsert into ChromaDB (local embedding, no API needed)
+    3. Optionally upload to Gemini Files API (best-effort, for logging)
+    Returns a file_id string stored in delta DB.
+    """
     with open(path, encoding="utf-8") as f:
         md = f.read()
-    # Extract title + url from first 2 lines
+
+    # Extract title + url from first few lines of the markdown
     lines = md.split("\n")
     title = lines[0].lstrip("# ").strip() if lines else ""
     url   = ""
-    for line in lines[1:5]:
+    for line in lines[1:6]:
         if "**Source:**" in line:
             url = line.replace("**Source:**", "").strip()
             break
 
     article_id = os.path.splitext(os.path.basename(path))[0]
+
+    # Step A – Embed into ChromaDB (local, always works)
     embed_fn(article_id, md, url, title)
-    return file_name   # used as "file_id" in delta DB
+
+    # Step B – Upload to Gemini Files API (optional, best-effort)
+    result = upload_fn(path)
+    file_name = result.get("name", "local-only")
+    return file_name
 
 
 def _gemini_delete(file_id, delete_gemini_fn, delete_chroma_fn):
