@@ -208,18 +208,32 @@ User question: {user_message}
 
 Answer (cite Source URLs at the end as 'Article URL: <url>'):"""
 
-    # Step 3 – Gemini chat
+    # Step 3 – Gemini chat (with retry on 429)
     url = f"{GEMINI_BASE}/v1beta/models/{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}"
     body = {
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.2, "maxOutputTokens": 1024},
     }
-    r = requests.post(url, json=body, timeout=30)
-    r.raise_for_status()
-    reply = r.json()["candidates"][0]["content"]["parts"][0]["text"]
 
-    citations = [f"[{i+1}] {d['url']}" for i, d in enumerate(docs)]
+    import time
+    for attempt in range(5):
+        r = requests.post(url, json=body, timeout=30)
+        if r.status_code == 429:
+            wait = 15 * (attempt + 1)   # 15s, 30s, 45s, 60s, 75s
+            logger.warning("[Gemini] Rate limit (429). Waiting %ds before retry %d/5…", wait, attempt + 1)
+            time.sleep(wait)
+            continue
+        r.raise_for_status()
+        break
+    else:
+        return {
+            "reply":     "Rate limit reached. Please wait 1 minute and run: python3 test_assistant.py",
+            "citations": citations,
+        }
+
+    reply = r.json()["candidates"][0]["content"]["parts"][0]["text"]
     return {"reply": reply, "citations": citations}
+
 
 
 # ── Stats ──────────────────────────────────────────────────────────────────────

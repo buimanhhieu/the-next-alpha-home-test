@@ -8,9 +8,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ── Provider selection ────────────────────────────────────────────────────────
-# Set AI_PROVIDER=openai  → uses OpenAI Files API + Vector Store (paid)
-# Set AI_PROVIDER=gemini  → uses Gemini Files API + ChromaDB (FREE)
-AI_PROVIDER = os.getenv("AI_PROVIDER", "gemini").lower()
+# Set AI_PROVIDER=groq    → Groq (Llama 4) - FREE, 30 RPM ✅ recommended
+# Set AI_PROVIDER=gemini  → Gemini 2.0 Flash - FREE but 15 RPM (rate limit issues)
+# Set AI_PROVIDER=openai  → OpenAI GPT-4o-mini - Paid
+AI_PROVIDER = os.getenv("AI_PROVIDER", "groq").lower()
 
 # ── Zendesk / Source ─────────────────────────────────────────────────────────
 ZENDESK_BASE_URL     = os.getenv("ZENDESK_BASE_URL", "https://support.optisigns.com")
@@ -33,6 +34,10 @@ OPENAI_API_KEY    = os.getenv("OPENAI_API_KEY", "")
 OPENAI_MODEL      = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 VECTOR_STORE_NAME = os.getenv("VECTOR_STORE_NAME", "optisigns-support-docs")
 ASSISTANT_NAME    = os.getenv("ASSISTANT_NAME", "OptiBot")
+
+# ── Groq (FREE) ───────────────────────────────────────────────────────────────
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+GROQ_MODEL   = os.getenv("GROQ_MODEL", "meta-llama/llama-4-scout-17b-16e-instruct")
 
 # Exact system prompt required by the assignment — DO NOT MODIFY
 ASSISTANT_SYSTEM_PROMPT = """You are OptiBot, the customer-support bot for OptiSigns.com.

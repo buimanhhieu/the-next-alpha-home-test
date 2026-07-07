@@ -29,6 +29,7 @@ from config import (
     LOG_LEVEL,
     OPENAI_API_KEY,
     GEMINI_API_KEY,
+    GROQ_API_KEY,
     AI_PROVIDER,
 )
 from zendesk_scraper import ZendeskScraper
@@ -62,6 +63,21 @@ def _load_provider():
             "delete_file":            delete_file,
             "get_stats":              get_vector_store_stats,
             "chat":                   lambda asst_id, msg: chat_with_assistant(asst_id, msg),
+        }
+    elif AI_PROVIDER == "groq":
+        from groq_uploader import (
+            upsert_to_chroma,
+            delete_from_chroma,
+            chat_with_groq,
+            get_stats,
+        )
+        return "groq", {
+            "get_or_create_store":     lambda: "chroma-local",
+            "get_or_create_assistant": lambda vs_id: "groq-llama4",
+            "upload_file":             lambda path, vs_id: _gemini_upload_and_embed(path, lambda p: {}, upsert_to_chroma),
+            "delete_file":             lambda file_id, vs_id: _gemini_delete(file_id, lambda f: None, delete_from_chroma),
+            "get_stats":               lambda vs_id: get_stats(),
+            "chat":                    lambda asst_id, msg: chat_with_groq(msg),
         }
     else:
         # Default: Gemini (free)
@@ -131,10 +147,13 @@ def run_pipeline(test_mode: bool = False):
 
     # Validate config
     if AI_PROVIDER == "openai" and not OPENAI_API_KEY:
-        logger.error("OPENAI_API_KEY is not set. Set AI_PROVIDER=gemini for the free option.")
+        logger.error("OPENAI_API_KEY is not set. Set AI_PROVIDER=groq for the free option.")
         sys.exit(1)
     if AI_PROVIDER == "gemini" and not GEMINI_API_KEY:
         logger.error("GEMINI_API_KEY is not set. Get a free key at https://aistudio.google.com/app/apikey")
+        sys.exit(1)
+    if AI_PROVIDER == "groq" and not GROQ_API_KEY:
+        logger.error("GROQ_API_KEY is not set. Get a free key at https://console.groq.com")
         sys.exit(1)
 
     # Load provider functions
