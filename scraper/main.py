@@ -291,7 +291,7 @@ def run_pipeline(test_mode: bool = False):
         "updated":  len(updated_list),
         "skipped":  skipped_count,
         "uploaded": upload_count,
-        "total_files_in_store": total_files,
+        "total_files_in_store": total_docs,
         "assistant_id": asst_id,
         "vector_store_id": vs_id,
     }

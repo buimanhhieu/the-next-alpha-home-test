@@ -49,6 +49,27 @@ def _get_chroma_collection():
     )
 
 
+def upsert_to_chroma(article_id: str, markdown: str, url: str, title: str):
+    """Upsert a document into ChromaDB (embedding is computed locally)."""
+    col = _get_chroma_collection()
+    col.upsert(
+        ids=[article_id],
+        documents=[markdown[:8000]],
+        metadatas=[{"url": url, "title": title}],
+    )
+    logger.debug("[Chroma] Upserted '%s' (%s)", title[:60], article_id)
+
+
+def delete_from_chroma(article_id: str):
+    """Remove a document from ChromaDB."""
+    try:
+        col = _get_chroma_collection()
+        col.delete(ids=[article_id])
+        logger.debug("[Chroma] Deleted %s", article_id)
+    except Exception as exc:
+        logger.warning("[Chroma] Could not delete %s: %s", article_id, exc)
+
+
 def search_chroma(query: str, top_k: int = 3) -> list[dict]:
     col = _get_chroma_collection()
     count = col.count()
