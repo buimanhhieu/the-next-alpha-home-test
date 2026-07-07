@@ -1,0 +1,16 @@
+# Railway deployment configuration
+# https://docs.railway.app/reference/config-as-code
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "python scraper/main.py"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+# To run as a cron job in Railway:
+# 1. Go to Settings → Cron Jobs
+# 2. Schedule: 0 2 * * *
+# 3. Command: python scraper/main.py

@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  # ── One-shot sync job ───────────────────────────────────────────────────────
+  sync:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: support-bot-sync
+    restart: "no"          # runs once; cron or scheduler triggers it externally
+    env_file:
+      - .env
+    volumes:
+      - articles_data:/app/articles   # persisted Markdown files
+      - delta_data:/app/data          # persisted SQLite delta DB
+
+  # ── Cron scheduler (runs sync every day at 02:00 UTC) ──────────────────────
+  scheduler:
+    image: docker:24-cli
+    container_name: support-bot-scheduler
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    entrypoint: >
+      sh -c "
+        echo '0 2 * * * docker start support-bot-sync' | crontab - &&
+        crond -f -l 8
+      "
+    depends_on:
+      - sync
+    restart: unless-stopped
+
+volumes:
+  articles_data:
+  delta_data:
