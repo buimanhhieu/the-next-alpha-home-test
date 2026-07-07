@@ -59,7 +59,19 @@ To verify the bot can answer and cite sources properly:
 python test_assistant.py
 ```
 
-## ☁️ Deployment (Cron Job)
+## ☁️ CI/CD & Automation (Daily Sync)
 
-This project includes a `Dockerfile` and is ready to be deployed on platforms like **Railway** or **Render**. 
-Set a daily Cron Job (e.g., `0 2 * * *` for 2 AM daily) to execute `python main.py`. The Delta Tracker ensures that only new or modified Zendesk articles are synced to the AI, making it highly efficient.
+This project achieves **100% serverless automation** using **GitHub Actions**.
+
+- **Workflow:** `.github/workflows/sync.yml`
+- **Schedule:** 2:00 AM UTC Daily (`0 2 * * *`)
+- **How it works:** 
+  1. GitHub spins up an Ubuntu runner daily.
+  2. The pipeline fetches new articles from Zendesk API.
+  3. The `delta.db` tracks changes. If new/updated articles are found, they are embedded via ChromaDB and synced.
+  4. The workflow automatically commits any newly generated Markdown files and updated SQLite databases back to the repository (`[skip ci]` to prevent loops).
+
+### To configure it on your fork:
+Go to your GitHub Repository Settings → Secrets and variables → Actions, and add:
+- `AI_PROVIDER`: `groq`
+- `GROQ_API_KEY`: Your Groq API key
