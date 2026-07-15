@@ -1,29 +1,32 @@
-# Advanced: Custom Domain mapping
-**Source:** https://support.optisigns.com/hc/en-us/articles/1500000480302-Advanced-Custom-Domain-mapping
+# Advanced: Custom Domain Mapping
+**Source:** https://support.optisigns.com/hc/en-us/articles/1500000480302-Advanced-Custom-Domain-Mapping
 
-With OptiSigns Pro Plus and Enterprise plan, you can enhance your branding by mapping your custom domain for OptiSigns Management Portal.
-
- 
+- [What You'll Need](#WhatYouNeed) 
+- [Activate OptiSigns Sub-Domain](#Activate) 
+- [Map CNAME Alias for Domain / Sub-Domain](#CNAME) 
+- [Activate SSL for Domain / Sub-Domain and Activating Add-On](#SSL) 
+OptiSigns lets you can enhance your branding or white label by mapping a custom domain for your OptiSigns Management Portal.
 
 For example: you can map your sub-domain: **login.abcmedia.com** so that your users can log in and use the portal from **login.abcmedia.com** and use the app like the screenshot below.
 
+---
+
+## What You'll Need
  
+- An ****[OptiSigns Pro Plus](https://www.optisigns.com/pricing) plan or higher 
+- An active Custom Domain add-on (flat $10/month) or free trial (to create a custom domain) 
 
- 
+---
 
-****
-#### Let's jump in and get started!
-**1) Activate your OptiSigns sub-domain (in this example: abcmedia.optisigns.net):**
-
+## Activate OptiSigns Sub-Domain
 Go to the Branding page of your Account Management Settings:
-
-[https://app.optisigns.com/app/s/branding-settings](https://app.optisigns.com/app/s/branding-settings)
 
 Type in your desired sub-domain for optisigns.net. In this case, we type in "abcmedia".
 Don't worry about optisigns.net, you will map your domain in the next step.
 
-**2) Map CNAME alias for your domain/sub-domain:**
+---
 
+## Map CNAME Alias for Domain / Sub-Domain
 In your Domain DNS management, map your desired domain/sub-domain to your OptiSigns sub-domain using CNAME Alias.
 In this example, we map: login.abcmedia.com -> abcmedia.optisigns.net
 
@@ -56,24 +59,8 @@ Here are links to documentation from some popular domain hosts:
 - [HostGator](https://www.hostgator.com/help/article/how-to-change-dns-zones-mx-cname-and-a-records) 
 - [DreamHost](https://help.dreamhost.com/hc/en-us/articles/215414867-How-do-I-add-custom-DNS-records-) 
 - [Cloudflare](https://support.cloudflare.com/hc/en-us/articles/360020615111-Configuring-a-CNAME-setup) 
-**3) Activate SSL for your sub-domain**
 
-Once you have done step 2, return to the Branding page:
+---
 
-[https://app.optisigns.com/app/s/branding-settings](https://app.optisigns.com/app/s/branding-settings)
-
-Enter the domain/sub-domain you have configured in Step 2 in Your domain section.
-
-In this example, we use: login.abcmedia.com
-
-Then click Activate.
-
-This will trigger the process on OptiSigns side to activate SSL for your sub-domain. This will ensure that your user can use HTTPS: i.e. [https://login.abcmedia.com](https://login.abcmedia.com) to use the app.
-
-This process can take up to 24-48 hours to complete. You will be notified via email once it's done.
-
- 
-
-****
-#### That's all!
-Once you get the notification that your SSL is activated, you can start using your own domain/sub-domain (i.e. [https://login.abcmedia.com](https://login.abcmedia.com)).
+## Activate SSL for Domain / Sub-Domain and Activating Add-On
+Next, to activate your domain, you'll need to activate your Custom Domain add-on. This can be done either on the **Subscription Page** or directly from the **Branding Page**.
