@@ -12,6 +12,9 @@
   - [Enable Dashboard Embed](#EnableEmbedding) 
   - [Publish Dashboard](#PublishDashboard) 
   - [Share Dashboard with Service Principal](#ShareDashboard) 
+  -  [Grant the Service Principal Access to the Data (Unity Catalog)](#GrantAccessToData)
+    - [Granting at the Catalog Level Instead](#CatalogLevel)
+  
   
 - [Create a Databricks App in OptiSigns](#CreateDatabricksApp) 
 - [Deploying a Databricks App](#DeployingDatabricks) 
