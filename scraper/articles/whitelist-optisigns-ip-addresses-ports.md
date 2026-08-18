@@ -29,6 +29,8 @@ IP Address for **OptiSigns**:
 - 206.189.255.219 (API) 
 - software-update.optisigns.com (Pro Player OTA update) 
 - software-download.optisigns.com (Pro Player OTA update) 
+- optisignsapp.com 
+- *.optisignsapp.com 
 OptiSigns utilizes Transloadit for **uploading files via the OptiSigns portal**. If you encounter any issues with uploading files, you can resolve this by whitelisting Transloadit's IP address.
 
  
