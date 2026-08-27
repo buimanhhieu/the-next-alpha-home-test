@@ -1,7 +1,7 @@
 # How to display content inside websites that require login?
 **Source:** https://support.optisigns.com/hc/en-us/articles/360037391854-How-to-display-content-inside-websites-that-require-login
 
-Sometimes you have content behind a website that requires log-in, such as your project schedule in Atlassian's JIRA, Trello, dashboard behind Tableau, Salesforces, etc.
+Sometimes you have content behind a website that requires log-in, such as your project schedule in Atlassian's Jira, Trello, dashboard behind Tableau, Salesforces, etc.
 
  It can either be a Browser Popup or a Gated Website (like below)
 
