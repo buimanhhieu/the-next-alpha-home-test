@@ -27,6 +27,9 @@ IP Address for **OptiSigns**:
 - 162.243.189.2 (Files) 
 - 157.230.201.46 (API) 
 - 206.189.255.219 (API) 
+- 167.172.3.79 (API) 
+- 209.38.62.216 (API) 
+- 24.199.67.135 (API) 
 - software-update.optisigns.com (Pro Player OTA update) 
 - software-download.optisigns.com (Pro Player OTA update) 
 - optisignsapp.com 
