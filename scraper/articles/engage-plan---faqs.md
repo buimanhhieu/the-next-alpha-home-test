@@ -37,7 +37,7 @@ There is also a two-week Free Trial available for this feature.
 
 This add-on is available to Standard and Pro Plus subscribers. Sign up for it through the **Subscription Plan **menu.
 
-You will not see this option if you are already an Engage or Enterprise subscriber.
+You will not see this option if you are already on the Engage plan or above.
 
 **Does SMS messaging cost extra?**
 

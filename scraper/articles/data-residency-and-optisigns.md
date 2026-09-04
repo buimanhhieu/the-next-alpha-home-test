@@ -1,7 +1,7 @@
 # Data Residency and OptiSigns
 **Source:** https://support.optisigns.com/hc/en-us/articles/9169378546195-Data-Residency-and-OptiSigns
 
-Customers on the Engage or Enterprise Plans can request their data to be stored in a certain country, or region for data residency requirements.
+Customers on the Engage plan or above can request their data to be stored in a certain country, or region for data residency requirements.
 
  
 
@@ -14,7 +14,7 @@ And distributed to your devices via CDN for the fastest speed.
 
  
 
-Engage or Enterprise customers can request your data to be stored in:
+Customers on the Engage plan or above can request your data to be stored in:
 
  
 - US: 

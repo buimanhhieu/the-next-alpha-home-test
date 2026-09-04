@@ -5,7 +5,7 @@ Kiosk Lite app, also formerly known as the Interactive Kiosk app, allows you to 
 
  This is useful for the kiosk use case, where a standard advertising, or promotion playlist can be played, and when the customer touches the screen, they can interact with a website to enter their information, or browse catalogs, etc.
 
- This feature is supported on iOS, Androids, Windows, Linux, MacOS, Raspberry Pi, ChromeOS, and BrightSigns devices. In addition, the Kiosk Lite app is only available through our Engage and Enterprise plans.
+ This feature is supported on iOS, Androids, Windows, Linux, MacOS, Raspberry Pi, ChromeOS, and BrightSigns devices. In addition, the Kiosk Lite app is only available on the Engage plan or above.
 
   
 
