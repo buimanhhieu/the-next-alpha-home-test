@@ -10,7 +10,7 @@ Localized, relevant ads like below is proven to increase sales.
 ****
 #### Before we get started, a few points on how to best use these type of pop in ads:
  
-- Make your ads visible, but obstructive. While you can place the ads anywhere, it's better to place in the corners (bottom right, top left, etc.) instead of middle of the screen. 
+- Make your ads visible, but not obstructive. While you can place the ads anywhere, it's better to place in the corners (bottom right, top left, etc.) instead of middle of the screen. 
 - Make the ads jiggle, this will capture much more attention (see how below). 
 - Make time based, localize ads (i.e. $2 off beers in next 30min) which will create a sense of urgency and proven to have better conversion. 
 - Place it on TV program that people actively watching (Sport is great example). 

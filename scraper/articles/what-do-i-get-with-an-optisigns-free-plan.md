@@ -28,7 +28,6 @@ Free plan is good for users with basic digital signage needs. With a Free Plan, 
   
 - Uploading of images, videos, and documents up to 25mb per file 
 - 1GB cloud storage 
-- Local folder app - Store your large files locally and mix with your playlist 
 - Complete access to the OptiSigns Knowledge Base 
 
 ---
