@@ -50,6 +50,9 @@ OptiSigns utilizes Unsplash images in the **Designer app**. If you encounter any
 OptiSigns utilizes RealVNC for **Remote Device Control**. If you use remote control and experience any connection issues with remote control, you can resolve this by whitelisting RealVNC's domain and IP address.
 
 - *.services.vnc.com
+OptiSigns utilizes **Cloudflare Pages** to host branding portals. If you encounter any issues accessing your OptiSigns branding portal, you can resolve this by whitelisting the following domain:
+
+- scio3-prod-branding.pages.dev
 OptiSigns utilizes Sport Pulse for **Sports Feeds**. If you have an issue displaying the sports feed, you can resolve this by whitelisting Sport Pulse's domain.
 
 - sportpulse.app

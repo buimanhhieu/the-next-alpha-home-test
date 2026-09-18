@@ -6,4 +6,4 @@ The steps below are for you to assign a playlist, but you can follow the same pr
 
  
 ### 1) Assign content to your screen
- To assign the playlist to your screen: Go to the **Screen** tab.
+ To assign the playlist to your screen: Go to the **Screens** tab.
