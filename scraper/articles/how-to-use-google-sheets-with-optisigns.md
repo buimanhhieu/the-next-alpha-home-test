@@ -1,7 +1,7 @@
-# How to use Google Sheets with OptiSigns
-**Source:** https://support.optisigns.com/hc/en-us/articles/360056977214-How-to-use-Google-Sheets-with-OptiSigns
+# How to Use Google Sheets with OptiSigns
+**Source:** https://support.optisigns.com/hc/en-us/articles/360056977214-How-to-Use-Google-Sheets-with-OptiSigns
 
-### Google Sheets is among one of the most popular spreadsheet applications available online. In OptiSigns, you can set up a Google Sheets app so that whenever changes are made on your Sheet it will automatically show up on your screen.
+### Google Sheets is one of the most popular spreadsheet applications available online. In OptiSigns, you can set up a Google Sheets app so that whenever changes are made on your Sheet it will automatically show up on your screen.
 In this article, we'll cover:
 
  
@@ -13,7 +13,7 @@ In this article, we'll cover:
 
 ---
 
-## How to Create a Google Sheet App
+## How to Create a Google Sheets App
 Open the ****[OptiSigns portal](https://app.optisigns.com/app/screenManagement) → Go to ****[Files/Assets page](https://app.optisigns.com/app/assetManagement)
 
 Click **Apps** → Search for **Google Sheets** and click on the app:
@@ -42,6 +42,8 @@ A Google authorization pop-up window will appear → Follow the steps to authent
 Once permission is granted, you can **customize** and **set up** your Google Sheet asset:
 
  
+-  **Name: **The name of the asset used in OptiSigns. This will not appear on your screens. 
+-  **URL: **The URL of the Google Sheets asset you're using. 
 -  **Select Sheet:** Allows you to select a single sheet from within the Google Sheet to display
   -  ***Reload Sheets:** *This will refresh the data to get an updated list Sheets available within that entire document for you to choose from.
   
@@ -69,7 +71,7 @@ When you update your Sheet, Google will also send a notification to our system, 
 ## Option 2: Setting Up a Public Sheet
 ***This method is useful if you want closer to real-time updates on your screen and a sharing experience similar to Google Docs.***
 
-In your Sheet, go to **Files** → **Share** → **Publish to Web** → Click **Publish -> OK.**
+In your Sheet, go to **Files** → **Share** → **Publish this Document** → Click **Publish -> OK.**
 
 **Copy this** **published link** → Return to your Google Sheets app in the OptiSigns portal.
 
@@ -77,13 +79,6 @@ In your Sheet, go to **Files** → **Share** → **Publish to Web** → Click **
 
 Click **Next**.
 
- 
-
-**Set up Update Interval:** You can specify in seconds, how often the app should check for updated sheets:
-
- 
--  **Default/Minimum:** 600 seconds 
-- 0 means it will only check your data when it loads the first time. 
 Once done, click **Save**.
 
 ---
