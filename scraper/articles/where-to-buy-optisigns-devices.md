@@ -23,7 +23,7 @@ For your convenience, OptiStick is also available from Amazon Stores.
 -  [Amazon.com](https://links.optisigns.com/optistick-amazon-us)**:** Ideal for customers in the United States and international locations. 
 -  [Amazon.ca](https://links.optisigns.com/optistick-amazon-ca)**:** Ideal for customers in Canada. 
 -  [Amazon.mx](https://links.optisigns.com/optistick-amazon-mx): Ideal for customers in Mexico. 
--  [Amazon.co.uk](https://www.amazon.co.uk/OptiSigns-Android-Digital-Signage-Player/dp/B09LRF5KCJ): Ideal for customers in the United Kingdom and European countries. 
+-  [Amazon.co.uk](https://links.optisigns.com/optistick-amazon-uk): Ideal for customers in the United Kingdom and European countries. 
 -  [Amazon.com.au](https://www.amazon.com.au/dp/B0FNXRQ8XX): For customers in Australia. 
 -  [Amazon.de](https://links.optisigns.com/optistick-amazon-de)**:** For customers in Germany and European countries. 
 -  [Amazon.fr](https://www.amazon.fr/dp/B0CWHJTG69?maas=maas_adg_31C9112BA17E5D8EAF887AC3EF6CEC1C_afap_abs&ref_=aa_maas&tag=maas): For customers in France. 
@@ -35,7 +35,7 @@ Here's a list of countries and recommended places to buy. Please note: Shipping 
 
              **Country**   **Where to buy**   **Shipping time**   **Shipping cost**   **VAT/GST**   **Import Duty**    Canada  amazon.ca
 [order here](https://links.optisigns.com/optistick-amazon-ca)  5-7 days Free w Prime Depends on destination None   UK  amazon.co.uk
-[order here](https://www.amazon.co.uk/OptiSigns-Android-Digital-Signage-Player/dp/B09LRF5KCJ)  Prime Free w Prime Included price None   Australia  amazon.com.au
+[order here](https://links.optisigns.com/optistick-amazon-uk)  Prime Free w Prime Included price None   Australia  amazon.com.au
 [order here](https://www.amazon.com.au/dp/B0FNXRQ8XX)  3-5 days Free w/ Prime Included Price None   New Zealand  amazon.com
 [order here](https://links.optisigns.com/optistick-amazon-us)  9-15 days Usually free with orders over $49.99 15% None   Japan (日本)  amazon.com
 [order here](https://links.optisigns.com/optistick-amazon-us)  9-11 days $10.22 - $22.89 None None   France   amazon.fr
