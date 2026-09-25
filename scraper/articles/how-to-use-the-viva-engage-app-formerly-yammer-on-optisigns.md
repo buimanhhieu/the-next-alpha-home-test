@@ -7,4 +7,4 @@ First, you will need to have your screens set up and paired. For more informatio
 
 Then log on to our portal: [http://app.optisigns.com/](http://app.optisigns.com/)
 
-Go to Files/Assets, Click on "App", find and click on Viva Engage:
+Go to Files/Assets, Click on "Apps", find and click on Viva Engage:
