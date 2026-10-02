@@ -8,6 +8,8 @@
 - [Frequently Asked Questions](#FAQs) 
 With OptiSigns, it's possible to showcase your SharePoint site on any of your screens. Even gated sites requiring login can be shown. All you'll need is a URL to your SharePoint site and a valid Microsoft account.
 
+Note that if you want to display SharePoint News, you'll want to check out our article on [Connecting SharePoint News to OptiSigns](https://support.optisigns.com/hc/en-us/articles/55450681344915).
+
 ---
 
 ## What You Need
