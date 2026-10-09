@@ -4,60 +4,71 @@
 ### In this article, we'll walk you through setting up Grafana to display on your OptiSigns digital signs.
  
 - [What You'll Need](#WhatYoullNeed) 
+- [Which Setup Applies to You](#WhichSetupAppliesToYou) 
 -  [Create a Service Account in Grafana](#CreateAServiceAccountInGrafana) 
   - [Create the Service Account](#CreateTheServiceAccount) 
   - [Generate a Token](#GenerateAToken) 
   
-- [Add a Grafana Connection in OptiSigns](#AddAGrafanaConnectionInOptiSigns) 
--  [How OptiSigns Renders Your Dashboard](#HowOptiSignsRendersYourDashboard) 
-  - [If You Use Grafana Cloud](#IfYouUseGrafanaCloud) 
-  - [If You Self-Host Grafana](#IfYouSelfHostGrafana) 
+-  [Add a Grafana Connection in OptiSigns](#AddAGrafanaConnectionInOptiSigns) 
+  - [If You Use Grafana Cloud](#GrafanaCloud) 
+  - [If You Self-Host Grafana](#SelfHostedGrafana) 
+  - [If Grafana Is on Your Own Network](#GrafanaOnYourOwnNetwork) 
+  - [If Grafana Is Behind a Firewall](#GrafanaBehindAFirewall) 
+  - [If You Use a Public Dashboard Link](#PublicDashboardLink) 
   
+- [Set Up Live Mode on Your Grafana](#SetUpLiveModeOnYourGrafana) 
 -  [Create a Grafana App in OptiSigns](#CreateAGrafanaAppInOptiSigns) 
   - [Display Settings](#DisplaySettings) 
   - [Advanced Settings](#AdvancedSettings) 
+  - [About the Preview](#AboutThePreview) 
   
--  [Deploying a Grafana App](#DeployingAGrafanaApp)
-  - [How Updates Will Appear Onscreen](#HowUpdatesWillAppearOnscreen)
+-  [Deploying a Grafana App](#DeployingAGrafanaApp) 
+  - [How Updates Will Appear Onscreen](#HowUpdatesWillAppearOnscreen) 
+  - [Which Players Are Supported](#WhichPlayersAreSupported) 
   
 -  [Frequently Asked Questions](#FrequentlyAskedQuestions) 
   - [The connection test says Grafana rejected this token. What's wrong?](#TheConnectionTestSaysGrafanaRejectedThisTokenWhatsWrong) 
-  - [The connection test says it could not reach my Grafana URL. Is that a problem?](#TheConnectionTestSaysItCouldNotReachMyGrafanaURLIsThatAProblem) 
+  - [The connection test says Cloudflare or a firewall blocked our servers. What do I do?](#TheConnectionTestSaysCloudflareOrAFirewallBlockedOurServersWhatDoIDo) 
+  - [OptiSigns says it can't reach my Grafana. Is that a problem?](#OptiSignsSaysItCantReachMyGrafanaIsThatAProblem) 
   - [My dashboard list is empty, or I can't find my dashboard. How can I make it appear?](#MyDashboardListIsEmptyOrICantFindMyDashboardHowCanIMakeItAppear) 
-  - [I entered my dashboard's link and OptiSigns won't accept it. Why?](#IEnteredMyDashboardsLinkAndOptiSignsWontAcceptItWhy) 
-  - [The connection test says there's no image renderer. What do I do?](#TheConnectionTestSaysTheresNoImageRendererWhatDoIDo) 
+  - [OptiSigns won't accept the link I entered. Why?](#OptiSignsWontAcceptTheLinkIEnteredWhy) 
+  - [The connection test tells me to install Grafana's image renderer. What do I do?](#TheConnectionTestTellsMeToInstallGrafanasImageRendererWhatDoIDo) 
   - [The connection test says embedding is disabled on my Grafana. How do I fix it?](#TheConnectionTestSaysEmbeddingIsDisabledOnMyGrafanaHowDoIFixIt) 
   - [My screen says Dashboard unavailable. What does that mean?](#MyScreenSaysDashboardUnavailableWhatDoesThatMean) 
-  - [My screen is showing old data and says data may be stale. Why?](#MyScreenIsShowingOldDataAndSaysDataMayBeStaleWhy) 
+  - [My screen shows Grafana's login page. Why?](#MyScreenShowsGrafanasLoginPageWhy) 
+  - [My screen is showing an old picture, or says Data unavailable. Why?](#MyScreenIsShowingAnOldPictureOrSaysDataUnavailableWhy) 
+  - [The preview says it isn't available. Will my screens work?](#ThePreviewSaysItIsntAvailableWillMyScreensWork) 
   - [My Grafana dashboard used to display fine, but stopped all of a sudden. What's wrong?](#MyGrafanaDashboardUsedToDisplayFineButStoppedAllOfASuddenWhatsWrong) 
   
-With the Grafana app, you can display a live Grafana dashboard on any OptiSigns screen.
+With the Grafana app, you can show a Grafana dashboard on any OptiSigns screen.
 
-Once set up, the dashboard renders automatically. It does not require a login on the screen, and it refreshes on a schedule you choose.
+Once it is set up, the dashboard appears by itself. Nobody has to log in on the screen.
 
 ---
 
 ## What You'll Need
  
 - An OptiSigns account with a [Pro Plus Plan or higher](https://www.optisigns.com/pricing)  
-- A Grafana instance, either [Grafana Cloud](https://grafana.com/products/cloud/)or self-hosted 
-- Admin rights in Grafana, so you can create a service account 
+- A Grafana instance, either [Grafana Cloud](https://grafana.com/products/cloud/) or self-hosted 
+- Admin rights in Grafana 
 - A dashboard you want to display 
 - An OptiSigns-enabled device 
 - A screen, set up and paired with OptiSigns 
-Within Grafana, you'll also need these two values:
+Depending on your setup, you may also need a service-account token from Grafana. The next section tells you if you do.
 
- 
-- Your **Grafana URL**  
-- A **service-account token** with the **Viewer** role 
-We will show how to find them in the article below.
+---
+
+## Which Setup Applies to You
+OptiSigns works out your setup from the Grafana URL you enter, so there's no need to pick one yourself.
+
+If your setup needs a token, start with the next section. If it does not, skip ahead to [Add a Grafana Connection in OptiSigns](#AddAGrafanaConnectionInOptiSigns).
 
 ---
 
 ## Create a Service Account in Grafana
 A service account is what OptiSigns uses to read your dashboard. It is a machine identity that belongs to your Grafana, separate from any person's login, so nobody's password ever reaches a screen.
 
-The **Viewer** role is all OptiSigns needs. No need to give OptiSigns any more complex permissions.
+The **Viewer** role is all OptiSigns needs.
 
 ### Create the Service Account
 In Grafana, open **Administration**, then **Users and access**, then **Service accounts**.
@@ -76,43 +87,104 @@ Copy the token and store it somewhere safe. You will paste it into OptiSigns in 
 ---
 
 ## Add a Grafana Connection in OptiSigns
-Now we will give OptiSigns the two values you just collected.
-
 Go to **Integrations** under your main menu, then click the **Grafana** tab and click **Add Connection**.
 
-Fill in the form:
+Fill in the first two fields:
 
  
--  **Name** — the name of the connection as displayed in OptiSigns. This will not display on your screen. 
--  **Grafana URL** — your Grafana's base URL, for example `https://acme.grafana.net`. Use the base URL only, not a link to a dashboard. 
--  **Service-account token (Viewer)** — the token you generated in Grafana. 
+-  **Name**: the name of the connection as displayed in OptiSigns. It does not appear on your screen. 
+-  **Grafana URL**: your Grafana's base URL, for example `https://acme.grafana.net`, or a public dashboard link. A link to a regular dashboard won't work here. You'll pick the dashboard later, on the app. 
+A line then appears under the URL that names your setup. For some addresses, "**Checking where this Grafana runs…"** shows for a few seconds first.
+
+Follow the section that matches. If the line says our servers can't reach your Grafana, or mentions a login page, follow [Grafana on Your Own Network](#GrafanaOnYourOwnNetwork).
+
+### If You Use Grafana Cloud
+Paste your token into **Service-account token (Viewer)**.
+
 OptiSigns stores the token encrypted and uses it only on our servers. It is never sent to a screen.
 
-You can then hit **Test Connection **once all these fields are filled. You should receive a 200 notice (green) if the connection is successful. Click **Add** to save the connection.
+The **Connection test** runs by itself once the URL and token are filled in. A successful test reads "Connection verified. Grafana (version), (number) dashboards." Below it you will see "Grafana Cloud manages the renderer. Nothing to set up."
+
+Click **Add** to save the connection.
+
+### If You Self-Host Grafana
+This is a Grafana you host yourself that our servers can reach from the internet.
+
+Paste your token into **Service-account token (Viewer)**. The **Connection test** runs by itself.
+
+Under the result, one line tells you whether your Grafana is ready for Live mode:
+
+Click **Add** to save the connection. You can save it whatever the test says.
+
+### If Your Grafana Is On Your Own Network
+This is a Grafana our servers cannot reach: a private IP address such as `192.168.1.20`, `localhost`, a short name such as `grafana`, a name ending in `.local`, `.lan` or `.internal`, or any address that only answers inside your network.
+
+Your screens load the dashboard themselves, so they need to be on a network that can reach your Grafana.
+
+You won't need a token here, and there's no connection test. Open the **Set up Live mode on your Grafana** block and follow [Set Up Live Mode on Your Grafana](#SetUpLiveModeOnYourGrafana), then click **Add**.
+
+A few things to know:
+
+ 
+- Use `https://` where you can. The certificate needs to come from a public certificate authority, because screens won't load a self-signed one. 
+-  `http://` works on Android and Windows/Mac players. It isn't available in the Web Player, which is when you use a browser as your screen. 
+- A login page in front of Grafana. If the form says "A login page sits in front of this Grafana, so our servers can't reach it.", your screens can only load the dashboard if that login lets them through. 
+- A firewall instead of a private network. If the form says "Our servers can't reach this Grafana.", you can click **Behind a firewall? Allow OptiSigns' IP.** and follow the next section instead. 
+
+### If Grafana Is Behind a Firewall
+This is a Grafana on the internet that only accepts visitors it knows, for example behind Cloudflare Access, a Cloudflare rule, or a firewall allowlist.
+
+You let our servers in by allowing OptiSigns' fixed IP address. Our servers then fetch a screenshot of your dashboard and send it to your screens.
+
+You'll need:
+
+ 
+- A **Pro Plus** or **Engage** plan. On other plans the form shows an **Upgrade** button instead. 
+- An `https://` address on the standard port (443). 
+- Grafana's [image renderer service](https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/) installed, because screens show screenshots on this path. 
+When adding a Grafana Connection, you'll need to Allow our IP. The form shows the IP address with a copy button. Add it to your firewall or Cloudflare rule.
+
+Paste your token into **Service-account token (Viewer)**.
+
+Read the test result. The test runs by itself.
+
+**Can't allow our IP?** Under the test you will see "Can't allow our IP? Screens on an allowed network can load the dashboard directly." Open **Set up Live mode on your Grafana** there and follow [Set Up Live Mode on Your Grafana](#SetUpLiveModeOnYourGrafana). Your screens then load the dashboard themselves, so they need to be on a network your firewall allows.
+
+### If You Use a Public Dashboard Link
+A public dashboard link needs no token and no setup in OptiSigns.
+
+In Grafana, share the dashboard externally (older versions call this a public dashboard) and copy its link. See [Grafana's guide to shared dashboards](https://grafana.com/docs/grafana/latest/dashboards/share-dashboards-panels/shared-dashboards/). The link contains `/public-dashboards/`.
+
+Paste that link into **Grafana URL**, then click **Add**.
+
+A few things to know:
+
+ 
+- Keep in mind that **anyone who has the link can see the dashboard.**  
+- The time range, theme and filters are the ones saved on the public dashboard. To change them, edit the public dashboard in Grafana. 
+- Some public links open as a full page on the screen instead of inside the app: links on Grafana Cloud, links on your own network, and links where the test says "Its Grafana forbids framing, so screens will open it as a full page." These play on Android and Windows/Mac players, not in the Web Player. 
 
 ---
 
-## How OptiSigns Renders Your Dashboard
-OptiSigns has two ways to put a Grafana dashboard on a screen, and it picks the right one for you from the URL you entered. You do not need to choose.
+## Set Up Live Mode on Your Grafana
+Live mode needs a one-time change to your Grafana configuration. This applies to self-hosted Grafana and Grafana on your own network.
+
+OptiSigns generates the exact configuration for your account.
 
  
--  **Grafana Cloud** - We render the dashboard as an image, and the screen displays it. This is essentially a screenshot that is refreshed every few minutes. Any updates made to your dashboard will need to wait for a new screenshot to be pushed to your device. 
--  **Self-Hosted **- We render your dashboard live. As any changes are made, the screens automatically update. 
-
-### If You Use Grafana Cloud
-There is nothing else to set up. Grafana Cloud manages the image renderer for you. Skip ahead to [Create a Grafana App in OptiSigns](#CreateAGrafanaAppInOptiSigns).
-
-### If You Self-Host Grafana
-Self-hosted instances default to **Live** mode, which needs a one-time change to your Grafana configuration.
-
-OptiSigns generates the exact configuration for your account. On the **Integrations** page, under your Grafana connection, find **Set up Live mode on your Grafana**. Pick the **grafana.ini** or **Docker / Kubernetes** tab to match how you run Grafana, click **Copy**, apply it to your Grafana, and restart. Then re-run the connection test.
-
-It turns on two things: 
+1. In the Grafana connection form, open **Set up Live mode on your Grafana**. To get back to it later, click **Edit** on the connection. 
+2. Pick the **grafana.ini** or **Docker / Kubernetes** tab to match how you run Grafana. 
+3. Click **Copy**. 
+4. Add it to your Grafana configuration and restart Grafana. 
+5. If your form has a connection test, click **Re-test**. 
+It turns on two things:
 
  
-- JWT authentication, so your Grafana accepts a signed token from OptiSigns instead of a password 
-- Embedding, so the dashboard can load inside a screen. Your own Grafana logins are unaffected. 
-If you would rather use **Image** mode on a self-hosted instance, you need Grafana's image renderer **service** installed and configured. Note that the bundled renderer *plugin* was removed in Grafana 13, so the standalone service is the only option on current versions. See [Grafana's image rendering documentation](https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/). You can then switch the mode under **Advanced** on the app itself.
+- JWT authentication, so your Grafana accepts a signed token from OptiSigns instead of a password. Your own Grafana logins are unaffected. 
+- Embedding, so the dashboard can load in the OptiSigns preview and in the Web Player. 
+After the first screen connects, you'll see a user named `optisigns-signage` in your Grafana. That's your OptiSigns screens signing in.
+
+If you would rather show screenshots from a self-hosted Grafana, install Grafana's image renderer service. The bundled renderer plugin was removed in Grafana 13, so the standalone service is the only option on current versions. See [Grafana's image rendering documentation](https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/). You can then switch the mode under **Advanced** on the app. This is not available for a Grafana on your own network, because our servers cannot reach it to take the screenshot.
 
 ---
 
@@ -126,32 +198,44 @@ The app opens with a live preview on the right, so you can see what the screen w
 Under **Connect**:
 
  
--  **Name** — the name of your Grafana app. This is for use in OptiSigns and will not display on your screen. 
--  **Grafana connection** — choose from any Grafana connections you've set up. 
-Under **Dashboard**:
+-  **Name**: the name of your Grafana app. This is for use in OptiSigns and does not appear on your screen. 
+-  **Grafana connection**: choose one of your Grafana connections (or create a new one) 
+Under **Dashboard**, what you see depends on the connection:
 
  
--  **Dashboard** — choose from a list of dashboards your service account can see on that connection. 
--  **Single panel ID (optional)** — leave this blank to show the whole dashboard. Enter a panel's ID to show just that one panel, filling the screen. You can find the ID in Grafana's URL when you view a single panel. 
+-  **Dashboard**: choose from the list of dashboards your service account can see. This is what most connections show. 
+-  **Dashboard link**: for a Grafana on your own network, there is no list. Open the dashboard in Grafana and copy the link from your browser's address bar, then paste it here. 
+- For a public dashboard link, there is no dashboard to choose. The link is shown as **Public dashboard URL**. 
+
+-  **Single panel ID (optional)**: leave this blank to show the whole dashboard. Enter a panel's ID to show just that one panel, filling the screen. You can find the ID in Grafana's URL when you view a single panel.
 
 ### Display Settings
 Open the **Display** section to control how the dashboard looks.
 
  
--  **Time range** — how far back the dashboard looks: Last 1 hour, Last 6 hours, Last 24 hours, or Last 7 days. The range always ends at the current moment. 
--  **Theme** — **Dark** or **Light**. Dark is usually the better choice on a wall-mounted screen. 
+-  **Time range**: how far back the dashboard looks. Last 1 hour, Last 6 hours, Last 24 hours, or Last 7 days. The range always ends at the current moment. 
+-  **Theme**: **Dark** or **Light**. Dark is usually the better choice on a wall-mounted screen. 
 In Image mode you will also see:
 
  
--  **Refresh (seconds)** — how often the screen fetches a new render, from 30 to 3600 seconds. The default is 300. More frequent updates put more load on your Grafana. 
--  **Image quality** — **Standard** or **High (HiDPI)**. Use High for a 4K screen or when a panel's text looks soft. 
--  **Show "as of" freshness stamp** — adds a small timestamp so viewers can tell how current the data is. 
+-  **Refresh interval**: how often the screen fetches a fresh screenshot, in seconds. 
+  - The minimum is 300 seconds (5 minutes), the maximum is 3600 seconds (1 hour), and the default is 600 seconds (10 minutes).
+  
+-  **Image quality**: **Standard** or **High (HiDPI)**. Use High for a 4K screen or when a panel's text looks soft. 
+-  **Show "as of" freshness stamp**: adds a small timestamp so viewers can tell how current the data is. 
+Public dashboard links have no Display settings.
 
 ### Advanced Settings
 The **Advanced** section holds one setting most screens never need.
 
--  **Render mode** — **Image mode (works on Cloud)** or **Live mode (self-hosted)**. OptiSigns sets this from your connection. Only change it if the mode it chose does not work on a particular screen.
-Click **Save** when you're done. The dialog stays open so you can keep adjusting; click **Close** when you're finished.
+-  **Render mode**: **Image mode (works on Cloud)** or **Live mode (self-hosted)**. OptiSigns sets this from your connection. You'd only need to change it if the mode it chose doesn't work on a particular screen.
+Click **Save** when you're done. The dialog stays open so you can keep adjusting. Click **Close** when you're finished.
+
+### About the Preview
+ 
+- In Live mode and for public links, the preview updates as you fill in the form. 
+- In Image mode, the preview appears after you click **Save** for the first time. 
+- For a Grafana on your own network, or an `http://` address, the preview may say **Preview not available**. Click **Open in Browser** from a computer on the same network, or push the app to a device to see it. Your screens can still show the dashboard. 
 
 ---
 
@@ -162,7 +246,7 @@ To get your new Grafana asset to a screen, go to the **Screens** tab, then click
 
 This brings up the **Edit Screen** dialog:
 
-Here, select **Asset** under **Content Type**. If you already have an Asset, Playlist, or Schedule selected, you can hit **Change**.
+Here, select **Asset** under **Content Type**. Or, if you already have an Asset displayed, you can hit **Change**.
 
 Then select your created Grafana Asset.
 
@@ -171,9 +255,13 @@ Now hit **Save**. Your Grafana asset will now display on screen.
 You can also deploy it as part of a split screen, allowing you to show other assets at the same time. See how in our Split Screen app article. It can also be displayed in a Playlist or Schedule.
 
 ### How Updates Will Appear Onscreen
-In **Image** mode, the screen fetches a fresh render every refresh interval, so a change you make in Grafana appears within one interval. If a render fails, the screen keeps showing the last good picture rather than going blank, and marks it **data may be stale** once it falls too far behind.
+In **Image** mode, the screen fetches a fresh screenshot every refresh interval, so a change you make in Grafana appears within one interval. If a screenshot fails, the screen keeps showing the last good one rather than going blank. The "as of" stamp shows when that picture was taken.
 
-In **Live** mode, the dashboard is running on the screen itself, so it updates on whatever refresh your Grafana dashboard is set to.
+In **Live** mode, the dashboard runs on the screen itself, so it updates on whatever refresh your Grafana dashboard is set to. About every 8 hours the screen reloads the dashboard, which shows a blank screen for a few seconds.
+
+For **Public dashboard links**, the screen shows the public dashboard as Grafana serves it.
+
+### Which Players Are Supported
 
 ---
 
@@ -183,42 +271,71 @@ Here, we'll answer some frequently asked questions our customers have, and solve
 ### The connection test says Grafana rejected this token. What's wrong?
 The token is expired, has been revoked, or belongs to a different Grafana than the URL you entered. Generate a new service-account token in Grafana and update the connection. Also check that the **Grafana URL** points at the same instance the service account lives in.
 
-### The connection test says it could not reach my Grafana URL. Is that a problem?
-Not necessarily. It means our servers could not open your Grafana from the internet, which is normal for a self-hosted instance on a private network. Your screens may still be able to reach it on your own network, which is exactly what Live mode does. You can save the connection and test again later.
+### The connection test says Cloudflare or a firewall blocked our servers. What do I do?
+Something in front of your Grafana stopped our servers before Grafana saw the request, so we could not check your token. Follow [Grafana Behind a Firewall](#GrafanaBehindAFirewall) to allow OptiSigns' fixed IP, then click **Re-test**.
 
-If you expected it to be reachable, check the URL for typos, make sure it is "https:", and confirm the certificate is issued by a public certificate authority. A self-signed certificate will fail.
+### OptiSigns says it can't reach my Grafana. Is that a problem?
+Not necessarily. It means our servers could not open your Grafana from the internet, which is normal for a Grafana on a private network. Your screens can still load it on your own network.
+
+If you expected it to be reachable, check the URL for typos and confirm the certificate is issued by a public certificate authority. A self-signed certificate will fail. Then enter the URL again.
 
 ### My dashboard list is empty, or I can't find my dashboard. How can I make it appear?
-The service account can sign in but cannot see any dashboards. In Grafana, check that the service account's role is **Viewer** and that it has permission to view the folder the dashboard lives in. Then reopen the picker in OptiSigns.
+There are three usual causes:
 
-Also make sure the connection you're using matches the Grafana instance where the dashboard lives.
+ 
+- The service account cannot see the dashboard. In Grafana, check that its role is **Viewer** and that it has permission to view the folder the dashboard lives in. 
+- Grafana Cloud is asleep. Open your Grafana in a browser once to wake it. 
+- The connection points at a different Grafana than the one the dashboard lives in. 
+Then close the app form and open it again, which reloads the list.
 
-### I entered my dashboard's link and OptiSigns won't accept it. Why?
-The Grafana URL field takes the base URL of your Grafana — https://acme.grafana.net — not a link to a particular dashboard. You choose the dashboard separately, from the Dashboard dropdown on the app. Remove everything after the host name and try again.
+### OptiSigns won't accept the link I entered. Why?
+It depends on the field:
 
-### The connection test says there's no image renderer. What do I do?
-Image mode renders through Grafana's image-renderer service, and your self-hosted Grafana doesn't have one configured. Install and configure the [image renderer service](https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/). Note the bundled renderer plugin was removed in Grafana 13, so the standalone service is the only option on current versions.
+ 
+-  **Grafana URL** (on the connection) takes the base URL of your Grafana, such as `https://acme.grafana.net`, or a public dashboard link. A link to a regular dashboard won't work there, so remove everything after the host name and try again. 
+-  **Dashboard link** (on the app, for a Grafana on your own network) takes the link from your browser's address bar while the dashboard is open. Shortened links, snapshot links, playlist links and public dashboard links won't work there. 
 
-Alternatively, switch **Render mode** to Live under **Advanced** on the app, which needs no renderer.
+### The connection test tells me to install Grafana's image renderer. What do I do?
+Your screens will show screenshots, and your self-hosted Grafana has no image renderer to take them. Install and configure the [image renderer service](https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/), then click **Re-test**. The bundled renderer plugin was removed in Grafana 13, so the standalone service is the only option on current versions.
 
 ### The connection test says embedding is disabled on my Grafana. How do I fix it?
-Your Grafana is telling browsers not to load it inside another page, so a screen cannot display it in Live mode. Turn embedding on in your Grafana configuration — it is part of the block under **Set up Live mode on your Grafana** on the **Integrations** page — then restart Grafana and re-run the test.
+Your Grafana is telling browsers not to load it inside another page. Apply the block under **Set up Live mode on your Grafana** in the connection form, restart Grafana, and click **Re-test**.
 
 If your Grafana also sends a Content-Security-Policy, its frame-ancestors setting has to allow embedding too.
+
+Android and Windows/Mac players open the dashboard as a full page, so they can show it even while embedding is off. The OptiSigns preview and the Web Player need embedding.
 
 ### My screen says Dashboard unavailable. What does that mean?
 The screen could not load your Grafana. The usual causes are:
 
  
-- Your Grafana URL is http while the player runs over https. Browsers block that, and it can only be fixed by serving Grafana over https. 
-- The device cannot reach your Grafana. It is likely down, DNS doesn't resolve, or the screen's network blocks it. 
-- Live mode is configured but your Grafana is not yet accepting OptiSigns' signed token. Re-run the connection test to confirm. 
+- The device cannot reach your Grafana. It may be down, its name may not resolve, or the screen's network may block it. 
+- Your Grafana's certificate is not from a public certificate authority. 
+The screen keeps retrying by itself.
 
-### My screen is showing old data and says data may be stale. Why?
-OptiSigns could not get a fresh render from Grafana, so it is showing the last good picture rather than a blank screen. Check that Grafana is up and that the service-account token has not expired or been revoked, then re-run the connection test.
+### My screen shows Grafana's login page. Why?
+Your Grafana is not accepting OptiSigns' signed token yet. Check that you applied the whole block under **Set up Live mode on your Grafana**, that you restarted Grafana afterwards, and that your Grafana server can reach the internet address on the `jwk_set_url` line.
+
+### My screen is showing an old picture, or says Data unavailable. Why?
+OptiSigns could not get a fresh screenshot from Grafana. If it has an earlier one, it keeps showing it, and the "as of" stamp tells you how old it is. If it never got one, the screen says **Data unavailable**.
+
+Check that Grafana is up and that the service-account token has not expired or been revoked. If you use OptiSigns' fixed IP, also check that the IP is still allowed.
+
+### The preview says it isn't available. Will my screens work?
+Usually yes. The preview runs in your browser, which often cannot reach a Grafana on a private network.
+
+ 
+- In the app form, the preview says **Preview not available**. Click **Open in Browser** from a computer on the same network as your Grafana, or push the app to a device to check it. 
+- Elsewhere in OptiSigns, such as the Files/Assets and Screens pages, it says "Preview isn't available for this dashboard. Your screens can still show it." 
+If you see that second sentence in the Web Player, it isn't able to show this dashboard. See [Which Players Are Supported](#WhichPlayersAreSupported).
 
 ### My Grafana dashboard used to display fine, but stopped all of a sudden. What's wrong?
-Usually this is an expired or revoked service-account token. If you set an expiration date when you created it, check whether that date has passed. Generate a new token in Grafana and update your OptiSigns connection.
+Check these first:
+
+ 
+- The service-account token. If you set an expiration date when you created it, check whether that date has passed. Generate a new token in Grafana and update your OptiSigns connection. 
+- Your firewall or Cloudflare rule, if you use OptiSigns' fixed IP. Check that the rule still allows the IP and that your plan is still Pro Plus or Engage. 
+- Your Grafana configuration, if you use Live mode. An upgrade or a new deployment can drop the block you added under **Set up Live mode on your Grafana**. 
 
 ### That’s all!
 OptiSigns is the leader in [digital signage software](https://www.optisigns.com/). If you have any additional questions, concerns or any feedback about OptiSigns, feel free to reach out to our support team at [support@optisigns.com](mailto:support@optisigns.com).
