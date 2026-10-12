@@ -31,8 +31,6 @@ Modify attributes, add, delete, or rearrange items, and the content on your scre
 
  **2.** Select assets within your playlist to access **Remove** and **Edit Duration** options.
 
- **EDITOR’S NOTE — The button is now labelled just "Remove". (delete before publishing)**
-
  
 
   ****
@@ -42,8 +40,6 @@ Modify attributes, add, delete, or rearrange items, and the content on your scre
  **1. **Select an asset from the right panel, or use the checkboxes to select multiple items.
 
  **2.** Click the** 'Add Selected Items to Playlist'** button OR just simply Drag and Drop to the Playlist.
-
- **EDITOR’S NOTE — That button label is gone. Selecting assets opens a "N selected" bar at the top of the right-hand panel, and the add-to-playlist icon sits in that bar. (delete before publishing)**
 
  
 - This action will promptly incorporate the chosen assets into your preferred playlist.
@@ -88,7 +84,6 @@ Modify attributes, add, delete, or rearrange items, and the content on your scre
   - Slow 
   - Medium 
   - Fast 
-  - Custom: You will have the option to select a specific duration in seconds, with choices ranging from 1 to 20 in five-second intervals.
-**EDITOR’S NOTE — Not correct any more. Choosing Custom reveals a "Speed Value" slider from 0.1 to 2.0 seconds, in 0.1 steps. (delete before publishing)**  
+  - Custom: You will have the option to select a specific duration in seconds, with choices ranging from 1 to 20 in five-second intervals.  
   
 **4.** Click the Advanced button:
