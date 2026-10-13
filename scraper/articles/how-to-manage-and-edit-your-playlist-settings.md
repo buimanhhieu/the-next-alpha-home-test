@@ -84,6 +84,6 @@ Modify attributes, add, delete, or rearrange items, and the content on your scre
   - Slow 
   - Medium 
   - Fast 
-  - Custom: You will have the option to select a specific duration in seconds, with choices ranging from 1 to 20 in five-second intervals.  
+  - Custom: You will have the option to select a specific duration in seconds, with a Speed Value slider ranging from 1 to 20 in five-second intervals. 
   
 **4.** Click the Advanced button:
