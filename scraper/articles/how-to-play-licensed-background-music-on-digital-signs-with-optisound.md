@@ -1,16 +1,19 @@
 # How to Play Licensed Background Music on Digital Signs with OptiSound
 **Source:** https://support.optisigns.com/hc/en-us/articles/40671590645651-How-to-Play-Licensed-Background-Music-on-Digital-Signs-with-OptiSound
 
-****
 ### In this article, we’ll guide you through setting up OptiSound, our licensed background music add-on built directly into OptiSigns.
  
-- [What is OptiSound?](#Whatis) 
-- [What You'll Need](#WhatYouNeed) 
-- [OptiSound Tiers and Pricing](#TiersandPricing) 
--  [Setting Up an OptiSound Add-On](#SettingUp) 
-  -  [Browse](#Step2)[and Assign Music Stations](#Step2)  
-  - [Connect Device to Audio System](#Step3) 
+- [What is OptiSound?](#WhatIsOptiSound) 
+- [What You'll Need](#WhatYoullNeed) 
+- [OptiSound Tiers and Pricing](#OptiSoundTiersAndPricing) 
+- [Setting Up an OptiSound Add-On](#SettingUpAnOptiSoundAddOn) 
+-  [Setting Up Locations and Zones](#SettingUpLocationsAndZones) 
+  - [Add a New Location](#AddANewLocation) 
+  - [Set the Address of an Existing Location](#SetTheAddressOfAnExistingLocation) 
+  - [Add a Zone](#AddAZone) 
   
+- [Browse and Assign Music Stations](#BrowseAndAssignMusicStations) 
+- [Connect Your Device to Your Audio System](#ConnectYourDeviceToYourAudioSystem) 
 With OptiSound, you can stream curated background music legally in commercial environments, seamlessly alongside your digital signage content.
 
 ---
@@ -25,11 +28,12 @@ With OptiSound, you can stream curated background music legally in commercial en
  
 - OptiSigns subscription (****[Standard plan or higher](https://www.optisigns.com/pricing)) 
 - OptiSound Add-on 
-  - Standard Plan: $15.00/device/month 
-  - Pro Plan: $25.00/device/month 
+  - Standard Plan: $15.00/zone/month 
+  - Pro Plan: $25.00/zone/month 
   
 - An Android, OptiSigns Pro/ProMax, or Apple TV device 
 - Speaker / audio set up with bluetooth or wired connection capabilities 
+- An **Owner** or **Super Admin** login, to open the **OptiSound** tab 
 
 ---
 
@@ -37,49 +41,70 @@ With OptiSound, you can stream curated background music legally in commercial en
 Within OptiSigns, OptiSound offers two tiers of pricing:
 
  
--  **Standard - $15/device/month:** 
+-  **Standard - $15/zone/month:** 
   - Access to licensed, ad-free background music through the OptiSound app, or through an OptiSigns add-on 
   - Offline Music Playlist 
   - Available worldwide 
   
--  **Pro - $25/device/month:** 
+-  **Pro - $25/zone/month:** 
   - Unlimited access to OptiSound Premium music, a massive catalog of licensed popular music, from ABBA to Zendaya 
   - Available only in the United States and Canada 
   
-
-**Note the small crowns on the second row - these denote Premium audio channels.**
+Premium stations are marked with a small lock icon.
 
 ---
 
 ## Setting Up an OptiSound Add-On
-To subscribe to OptiSound, go to the **Subscription** **Plan **option in the main menu. Scroll down until you see **OptiSound**.
+To subscribe to OptiSound, go to the **Subscription** **Plan** option in the main menu. Scroll down until you see **OptiSound Music**.
 
-You'll have the Option to begin a 14-Day Free Trial. This will default to the Standard plan. To update to the **Pro Plan**, click **Update Licenses**.
+You'll have the option to begin a 14-Day Free Trial. This will default to the Standard plan. Your current plan is shown next to the add-on name.
 
-You'll have the option to choose your plan. For Premium music, choose the **Pro **plan, then hit **Update**.
+To manage where your music plays, click **Manage Zones**. This opens the **Locations** page in the **OptiSound** tab.
 
-When you've chosen the Pro Plan, it will be visible next to the Add-On menu.
+---
 
-In order to assign it to a screen, you can assign the add-on by hitting the **Add Screen **button here:
+## Setting Up Locations and Zones
+OptiSound organizes your music by **Locations** and **Zones**. A Location is your business venue, such as a store or a restaurant. A Zone is an area inside it that plays its own music, such as the Main Floor or the Patio. Each screen that plays music is paired to a Zone, and the add-on is licensed per Zone.
 
-You can also assign OptiSound to a screen directly - see below.
+To get started, go to the **OptiSound** tab.
 
-### Browse and Assign Music Stations
+Then click **Locations** in the OptiSound menu.
+
+### Add a New Location
+Click **New Location**. Give your location a **Location name**, then start typing your business address in **Address (optional)** and select it from the list. You can also click **Show address details** to fill in the address fields yourself. Click **Add Location** when you're done.
+
+### Set the Address of an Existing Location
+If your Location doesn't have an address yet, such as the **Default Location** created with your trial, you can add one at any time.
+
+Find your Location and click the **⋮** menu next to **Add Zone**.
+
+Click **Edit Location**.
+
+Start typing your business address in **Address (optional)** and select it from the list.
+
+The first time you open **Stations**, OptiSound will also ask **Where Is Your Business Located?** Choose your **Company Location** and click **Confirm Location** so OptiSound can show you station options for your region.
+
+### Add a Zone
+To add a Zone, click **Add Zone** on your Location. Give it a **Zone Name**, such as *Patio* or *Main Bar*. Check **Connect your device now?** if you'd like to pair a screen right away, then click **Add Zone**.
+
+---
+
+## Browse and Assign Music Stations
 To browse and assign stations, go to the **Screens** tab.
 
-Select the screen where you would like to assign music. This could be a screen you've already activated, or not. If not, click **Activate Background Music**.
+Select the screen where you would like to assign music and click **Edit**. Under **Background Music**, click **Activate**.
 
-This will use up an Add-On license.
+Choose the **Zone** this screen should play, then click **Pair screen**. If you haven't set up a Zone yet, choose **New zone here**, or click **Add a location in OptiSound**.
 
-Next, click **Change** to browse through the list of available stations.
+Next, click **Pick station** (or **Change**) to browse through the list of available stations. Select the station that best fits your business environment. Premium music stations are only available on a Pro plan, and need an address on the screen's OptiSound Location.
 
-Select the station that best fits your business environment. Premium music stations are only available on a Pro plan.
-
-Ensure the **Audio Source Priority **is set to **Background Music** in the screen settings. Setting the audio priority ensures your background music keeps playing, even when showing muted videos or other content.
+Ensure **Priority Audio** is set to **Background Music** in the screen settings. Setting the audio priority ensures your background music keeps playing, even when showing muted videos or other content.
 
 Finish assigning any additional content to the screen as needed. Then click **Save** — the selected music station will begin playing immediately.
 
-### Connect Your Device to Your Audio System
+---
+
+## Connect Your Device to Your Audio System
 To play the music through your business’s sound system you can either:
 
  
@@ -87,9 +112,5 @@ To play the music through your business’s sound system you can either:
 - Pair the device via **Bluetooth** to your speaker setup. 
 Double-check your device’s audio output settings to make sure it matches your connection type.
 
----
-****
-### That's all!
-With OptiSound, your digital signage now delivers both stunning visuals and a fully licensed audio experience — all managed from one place inside OptiSigns.
-
-If you have any questions or need help getting started, be sure to contact our support team at [support@optisigns.com](mailto:support@optisigns.com).
+### That’s all!
+OptiSigns is the leader in [digital signage software](https://www.optisigns.com/). If you have any additional questions, concerns or any feedback about OptiSigns, feel free to reach out to our support team at [support@optisigns.com](mailto:support@optisigns.com).
