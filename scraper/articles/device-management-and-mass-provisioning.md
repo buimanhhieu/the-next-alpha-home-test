@@ -16,14 +16,15 @@
 - [Provisioning Templates and Enterprise WiFi](#Provisioning&amp;WiFi) 
 Managing large numbers of devices can seem overwhelming. That's why we've introduced the **Devices **tab, where you can easily organize and troubleshoot your devices from a single location.
 
-This tab and interface is largely designed for IT personnel and becomes available to OptiSigns Pro Plus plan subscribers once they've set up and registered 5 screens or more on OptiSigns.
+This tab and interface is largely designed for IT personnel and becomes available to OptiSigns Pro Plus plan subscribers once they've set up and registered 5 screens or more on OptiSigns. Only Owners and Super Admins can access the Devices tab.
 
 ---
 
 ## What You'll Need
  
 - An OptiSigns ****[Pro Plus plan or higher](https://www.optisigns.com/pricing)  
-- 5 devices, set up and paired with OptiSigns 
+- 5 or more screen licenses, set up and paired with OptiSigns 
+- An Owner or Super Admin login account 
 
 ---
 
