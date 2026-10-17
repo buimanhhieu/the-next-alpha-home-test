@@ -24,18 +24,7 @@
   
 - [Create a Salesforce App in OptiSigns](#CreateASalesforceAppInOptiSigns) 
 - [How OptiSigns Renders Your Dashboard](#HowOptiSignsRendersYourDashboard) 
--  [Frequently Asked Questions](#FrequentlyAskedQuestions) 
-  - [My screen says CRM Analytics required. What does that mean?](#MyScreenSaysCRMAnalyticsRequiredWhatDoesThatMean) 
-  - [My screen says Sign-in required, or Needs reconnecting. What do I do?](#MyScreenSaysSignInRequiredOrNeedsReconnectingWhatDoIDo) 
-  - [My screen says a Salesforce security policy blocked the image. Why?](#MyScreenSaysASalesforceSecurityPolicyBlockedTheImageWhy) 
-  - [OptiSigns says Enter a valid My Domain URL. What is wrong?](#OptiSignsSaysEnterAValidMyDomainURLWhatIsWrong) 
-  - [Sign-in fails with redirect_uri_mismatch on a blank page. How do I fix it?](#SignInFailsWithRedirectUriMismatchOnABlankPageHowDoIFixIt) 
-  - [OptiSigns refused my report when I pressed Save. Why?](#OptiSignsRefusedMyReportWhenIPressedSaveWhy) 
-  - [Can I connect a sandbox org?](#CanIConnectASandboxOrg) 
-  - [Do I have to use Slack?](#DoIHaveToUseSlack) 
-  - [My dashboard is showing old numbers. Why?](#MyDashboardIsShowingOldNumbersWhy) 
-  - [Will my dashboard data be stored anywhere?](#WillMyDashboardDataBeStoredAnywhere) 
-  
+- [Frequently Asked Questions](#FrequentlyAskedQuestions) 
 With the Salesforce app, you can display a Salesforce dashboard or report on any OptiSigns screen.
 
 Once set up, your dashboard or report updates automatically. You can show it in two way. Redraw, the default, draws the charts from your Salesforce data and needs no extra Salesforce license. Salesforce image shows the exact picture Salesforce draws and needs CRM analytics. Nobody has to log in on the screen, and no Salesforce credentials ever reach the device.
@@ -245,17 +234,17 @@ In Salesforce, open the report, choose **Edit**, then **Add Chart**, and save it
 Or switch the app's Display mode to Redraw, which shows any report as a table, a bar chart, or a single number.
 
 #### Can I connect a sandbox org?
-Yes. There is nothing extra to switch on — paste the sandbox's own My Domain URL, which looks like `https://yourcompany--sandbox.sandbox.my.salesforce.com`. Salesforce recognises it from the address.
+Yes. There is nothing extra to switch on — paste the sandbox's own My Domain URL, which looks like https://yourcompany--sandbox.sandbox.my.salesforce.com. Salesforce recognises it from the address.
 
 #### Do I have to use Slack?
 No. Redraw does not use Slack apps at all. For Salesforce image, Salesforce requires the two Slack apps to be **enabled** in your org because its image service is part of that integration, but nobody needs a Slack account and nothing is posted to Slack.
 
-### My dashboard is showing old numbers. Why?
+#### My dashboard is showing old numbers. Why?
 A Salesforce dashboard shows the results from the last time it was run, so OptiSigns asks Salesforce to recalculate it at each update. That request is made by the **Run As** user on your External Client App, so check that one is set — see [Set the Run As User](#SetTheRunAsUser).
 
 Reports are not affected: Salesforce runs a report fresh every time it draws one.
 
-### Will my dashboard data be stored anywhere?
+#### Will my dashboard data be stored anywhere?
 To load quickly, your screens use a copy stored by OptiSigns. With Salesforce image Display mode, the copy is the picture, kept in OptiSigns' cloud storage. Each app keeps its few most recent pictures, and older ones are deleted automatically. With Redraw, the copy is the chart data, kept for up to 24 hours. Your screens receive only that picture or chart data.
 
 No Salesforce credentials are stored on the device, and nothing is written back to your Salesforce org.

@@ -4,6 +4,7 @@
 ### In this article, we'll show how to display Instagram posts on your digital signs with OptiSigns.
  
 - [What You'll Need](#WhatYoullNeed) 
+- [Instagram or Instagram Business?](#InstagramOrInstagramBusiness) 
 -  [Creating an Instagram Business App](#CreatingAnInstagramBusinessApp)
   - [Advanced](#Advanced)
   
@@ -25,6 +26,15 @@ Let's get started.
 - Your Instagram account linked to a Facebook Page ([see how](https://support.optisigns.com/hc/en-us/articles/360050855313)) 
 - An [OptiSigns-enabled device](https://support.optisigns.com/hc/en-us/articles/360021855653)  
 - A screen, set up and paired with OptiSigns ([see our Getting Started guide](https://support.optisigns.com/hc/en-us/articles/18823504383891)) 
+
+---
+
+## Instagram or Instagram Business?
+OptiSigns has two Instagram apps. Pick the one that matches what you want to show:
+
+ 
+-  **Instagram** - Shows the posts from your own Instagram profile. You sign in with Instagram directly. This is the app covered in this article. 
+-  **Instagram Business** - Shows the posts from any public profile or a hashtag. You connect through Facebook, using an Instagram account linked to a Facebook Page. See [How to Use the Instagram Business App](https://support.optisigns.com/hc/en-us/articles/360051495193). 
 
 ---
 
