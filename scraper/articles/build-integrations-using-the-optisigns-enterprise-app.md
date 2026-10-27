@@ -23,8 +23,6 @@ Go to [app.optisigns.com](https://app.optisigns.com/).
 
 Click Files/Assets, then click Apps, and select "Enterprise App".
 
-**EDITOR’S NOTE — Enterprise App now requires the Enterprise entitlement (company feature enterpriseAPP). Without it the card shows a padlock and clicking it opens an 'Enterprise Feature - contact support@optisigns.com' dialog. Consider stating this prerequisite here. The picker is also now titled 'Add App', not 'Select App'. (delete before publishing)**
-
 In the next page, click the template picture to create new project, this will be launching a WebIDE with sample code, where you can make adjustment to customize the page layout and how you want to interact with the data points from other systems. If you have an existing URL available, you can use it as well.
 
 The template comes with sample code that you can use directly, all you need to do is to change how you would like the page to look like and how you want to handle the incoming data points from other systems. Once you are done with the changes, click "Save&Deploy" button, it will be ready for use.
