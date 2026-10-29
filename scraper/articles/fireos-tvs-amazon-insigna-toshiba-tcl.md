@@ -1,18 +1,59 @@
 # FireOS TVs (Amazon, Insigna, Toshiba, TCL)
 **Source:** https://support.optisigns.com/hc/en-us/articles/1500009042742-FireOS-TVs-Amazon-Insigna-Toshiba-TCL
 
-********
-#### As of Feb 2024, FireStick and Fire TV are no longer recommended as digital signage player. This is due to Amazon eliminating the ability to auto start app with FireStick & Fire TVs starting FireOS 8.
-      There are workarounds with [ADB commands](https://support.optisigns.com/hc/en-us/articles/23274673797139) or manually to start the app. However, those workarounds are inconvenient, and we believe without an easy way to AutoStart apps, it is not a good solution for a Digital Signage player.    If you have older model of TVs with Amazon FireOS 7 or lower, you can continue with this article to get it set up.  1) Download OptiSigns Digital Signage from Amazon App Store
+### In this article, we'll install the OptiSigns app on a TV running Amazon FireOS and pair it with your OptiSigns account.
+ 
+- [Install the OptiSigns App](#InstallTheOptiSignsApp) 
+- [Pair the TV with Your Account](#PairTheTVWithYourAccount) 
+- [Start OptiSigns Automatically](#StartOptiSignsAutomatically) 
+- [Next Steps](#NextSteps) 
+TVs with Amazon's FireOS built in, such as Amazon Fire TV, Insignia, Toshiba and TCL models, can run the OptiSigns Digital Signage app from the Amazon Appstore.
 
- 2) Using OptiSigns' web portal to assign content and remotely manage your screens
+---
 
- So let's dive in!
+## Install the OptiSigns App
+On the TV's home screen, go to **Find** and select **Search**.
 
-  Press the **Search** icon on the **Find** section of the Fire TV,
+Type **OptiSigns**. Search results don't always update as you type, so press down on the remote until **OptiSigns** is highlighted, then select it.
+
+Select **Download** on the OptiSigns Digital Signage app page.
+
+When the download finishes, open the app.
+
+The app shows a pairing code. Keep it on screen; you'll need it in the next section.
+
+---
+
+## Pair the TV with Your Account
+
+1. On a computer or phone, go to [app.optisigns.com](https://app.optisigns.com/) and log in. If you don't have an account yet, select **Create Account**. You can also log in with Google, Microsoft or Facebook.
+
+1. On the **Screens** page, select **Add Screen**.
+
+1. Enter the pairing code shown on your TV in **Pair code**, then select **Pair**.
+
+**Note:** Codes are case-sensitive. The portal enters them in capitals. If the code on your TV has lowercase letters, select **Use lowercase pairing code** first.
+
+The TV changes to show that it's paired.
+
+---
+
+## Start OptiSigns Automatically
+The app's **Autostart** setting is on by default, so on FireOS 7 and earlier, OptiSigns opens by itself when the TV turns on.
+
+On FireOS 8 and later, the app shows a message that your device doesn't support autostart. You can still use OptiSigns, but you'll need to open it with the remote each time the TV restarts, or set up the [ADB workaround](https://support.optisigns.com/hc/en-us/articles/23274673797139).
+
+---
+
+## Next Steps
+Your TV is ready to show content. To get started:
 
  
+- [How to Upload & Manage Your Files/ Assets](https://support.optisigns.com/hc/en-us/articles/360016247974) 
+- [How to Create & Use Playlists](https://support.optisigns.com/hc/en-us/articles/28295104605843) 
+- [Creating and Using Schedules with OptiSigns](https://support.optisigns.com/hc/en-us/articles/360016981853) 
+- [Set up & add a screen](https://support.optisigns.com/hc/en-us/articles/360016374813) 
+If you have questions or feedback, contact our support team at support@optisigns.com.
 
- Type in "OptiSigns".
-Fire TV Search can be tricky to use, and search as you type sometimes does not work properly.
-After you typed "optisigns", be sure to press the menu down button until the "Optisigns" text is highlighted and then click on it.
+### That’s all!
+OptiSigns is the leader in [digital signage software](https://www.optisigns.com/). If you have any additional questions, concerns or any feedback about OptiSigns, feel free to reach out to our support team at [support@optisigns.com](mailto:support@optisigns.com).

@@ -103,7 +103,6 @@ You will lose access to certain features that are not available on a Free plan, 
 - Instagram Business 
 - LinkedIn 
 - Social Mix 
-- X (Twitter) 
 - YouTube Playlist 
 - YouTube Channel 
 - YouTube Live Schedule 
