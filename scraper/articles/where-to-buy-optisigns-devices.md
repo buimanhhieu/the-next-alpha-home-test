@@ -13,7 +13,7 @@ We recommend the OptiSigns Android Player for most use cases, as it is easy and 
   - [Log in & order from your account.](https://app.optisigns.com/app/s/order-device) 
   - 3-5 days shipping. Only available in the U.S. 
  
-Learn more about ordering a preconfigured device ****[here](https://support.optisigns.com/hc/en-us/articles/31960461758611). 
+Learn more about ordering a preconfigured device ****[here](https://support.optisigns.com/hc/en-us/articles/31960461758611). Preconfigured OptiSticks are not available for international customers at this time.
 
 **Non-US Customers:**
 
@@ -65,7 +65,7 @@ Here's a list of countries and recommended places to buy. Please note: Shipping 
 
  
 -  **Fast and Reliable Shipping:** Enjoy swift delivery with reliable shipping services. 
--  **Easy Taxes & Custom clearance:** Amazon handle taxes, custom duties, clearance in most destination (see table above) 
+-  **Easy Taxes & Custom clearance:** Amazon handle taxes, custom duties, clearance in most destinations (see table above) 
 -  **Clear Delivery Timelines:** See precise delivery dates at checkout. 
 -  **Real-Time Tracking:** Track your package every step of the way. 
 -  **24/7 Customer Support:** Benefit from Amazon’s round-the-clock assistance. 
