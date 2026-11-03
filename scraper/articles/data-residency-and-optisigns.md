@@ -34,4 +34,8 @@ Customers on the Engage plan or above can request your data to be stored in:
 - Australia:
   - Sydney (Amazon AWS)
   
+- Middle East
+  - UAE (Amazon AWS)
+
+  
 Please contact [support@optisigns.com](mailto:support@optisigns.com) or your sales rep if you are interested in pricing or would like to enable this feature on your account
