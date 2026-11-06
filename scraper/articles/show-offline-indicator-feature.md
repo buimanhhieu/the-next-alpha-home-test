@@ -1,10 +1,45 @@
-# Show Offline Indicator feature
-**Source:** https://support.optisigns.com/hc/en-us/articles/12498801963027-Show-Offline-Indicator-feature
+# Show Offline Indicator Feature
+**Source:** https://support.optisigns.com/hc/en-us/articles/12498801963027-Show-Offline-Indicator-Feature
 
-Show Offline Indicator is a feature to show an icon on the screen when there's no network connection, this is useful if your screen has live content that needs an Internet connection all the time.
+### In this article, we'll explain what the offline indicator shows on your screens and how to turn it on from the OptiSigns portal or on the device.
+ 
+- [What You'll Need](#WhatYoullNeed) 
+- [Turn On the Offline Indicator in the Portal](#TurnOnTheOfflineIndicatorInThePortal) 
+- [Turn On the Offline Indicator on the Device](#TurnOnTheOfflineIndicatorOnTheDevice) 
+- [Troubleshooting](#Troubleshooting) 
+When a screen loses its internet connection, OptiSigns keeps playing the content it has cached and skips anything that needs to be online, such as YouTube videos. Your viewers can't tell that anything is wrong.
 
-Note:
+If your screen shows live content that always needs the internet, such as dashboards, turn on the offline indicator. The screen then shows a small **Device is offline** badge whenever it has no network connection.
 
-- You may experience up to a 1 minute delay when showing the indicator.
-To use the Show Offline Indicator feature, just select the screen you want to enable this feature for.
-Click **Edit** -> **Advanced** -> check** Show Offline Indicator**
+---
+
+## What You'll Need
+ 
+- A paired screen 
+- A device that supports the offline indicator - the setting isn't offered on Roku, BrightSign, LG webOS Signage and embedded devices 
+
+---
+
+## Turn On the Offline Indicator in the Portal
+Go to **Screens**, find the screen and click **Edit**. In the **Edit Screen** dialog, click **Advanced**, check **Show Offline Indicator**, and click **Save**.
+
+The setting is off by default, and you turn it on for each screen separately.
+
+---
+
+## Turn On the Offline Indicator on the Device
+You can also turn it on at the device itself. Open the OptiSigns side menu, go to **Advanced Options** and turn on **Show Offline Indicator**.
+
+---
+
+## Troubleshooting
+Here are some of the more common questions and issues you might face with the Offline Indicator feature, and their solutions.
+
+#### Show Offline Indicator Is Missing From Edit Screen
+The device doesn't support the offline indicator. It isn't offered on Roku, BrightSign, LG webOS Signage and embedded devices.
+
+#### The Indicator Doesn't Appear Right Away
+The indicator waits about 1 minute after the connection drops before it appears. If the connection comes back within that minute, it doesn't appear at all.
+
+### That’s all!
+OptiSigns is the leader in [digital signage software](https://www.optisigns.com/). If you have any additional questions, concerns or any feedback about OptiSigns, feel free to reach out to our support team at [support@optisigns.com](mailto:support@optisigns.com).
