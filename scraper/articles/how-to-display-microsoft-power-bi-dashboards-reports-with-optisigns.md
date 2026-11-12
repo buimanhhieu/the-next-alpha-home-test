@@ -3,34 +3,12 @@
 
 ### In this article, we'll show you how to display Microsoft Power BI reports and dashboards on your screens with OptiSigns, including rotating report pages, Kiosk Mode, and filters that target individual screens.
  
-- [What You'll Need](#WhatYoullNeed) 
-- [How it Works](#HowItWorks) 
-- [Get your Report Ready in Power BI](#Step1GetYourReportReadyInPowerBI) 
-- [Add the Power BI App](#Step2AddThePowerBIApp) 
--  [Connect to Microsoft](#Step3ConnectToMicrosoft) 
-  - [Direct Login](#DirectLogin) 
-  - [Service Principal](#ServicePrincipal) 
+- [What You'll Need and How it Works](#WhatYoullNeed) 
+- [Preparing Your Power BI Report](#Step1GetYourReportReadyInPowerBI) 
+-  [Creating the Power BI App](#Step2AddThePowerBIApp)
+  - [Filter a Report](#FilterAReport)
   
-- [Choose your report or dashboard](#Step4ChooseYourReportOrDashboard) 
--  [Choose how the report plays](#Step5ChooseHowTheReportPlays) 
-  - [Rotate report pages](#RotateReportPages) 
-  - [Kiosk Mode](#KioskMode) 
-  
-- [Set the update interval and save](#Step6SetTheUpdateIntervalAndSave) 
--  [Filter a report](#FilterAReport) 
-  - [Create a filter](#CreateAFilter) 
-  - [Target individual screens with one filter (optional)](#TargetIndividualScreensWithOneFilterOptional) 
-  - [Save and reuse filters (optional)](#SaveAndReuseFiltersOptional) 
-  
--  [Frequently Asked Questions](#FrequentlyAskedQuestions) 
-  - [How does security work with the Power BI integration?](#HowDoesSecurityWorkWithThePowerBIIntegration) 
-  - [Should I use Direct Login or a Service Principal?](#ShouldIUseDirectLoginOrAServicePrincipal) 
-  - [How do I make the report fit my screen?](#HowDoIMakeTheReportFitMyScreen) 
-  - [My report shows in the portal but not on my screen.](#MyReportShowsInThePortalButNotOnMyScreen) 
-  - [My report lags or crashes.](#MyReportLagsOrCrashes) 
-  - [Does this work with Power BI for US Government (GCC / GCC High)?](#DoesThisWorkWithPowerBIForUSGovernmentGCCGCCHigh) 
-  
-- [Troubleshooting](#Troubleshooting) 
+- [Troubleshooting and Frequently Asked Questions](#Troubleshooting) 
 Put live Power BI reports and dashboards on any screen. OptiSigns signs in to Power BI through Microsoft's official APIs, keeps the report up to date, and can rotate through the report pages you pick or turn a report into a touch-screen kiosk.
 
 ---
@@ -175,31 +153,6 @@ Editing opens **Edit Filter**, where you can change the name, description and co
 
 ---
 
-## Frequently Asked Questions
-Here are some of the most commonly asked questions we find with customers using Power BI on OptiSigns.
-
-### How does security work with the Power BI integration?
-OptiSigns connects through Microsoft's official Power BI APIs and asks only for read access. With **Direct Login**, you sign in on Microsoft's own page, so OptiSigns never sees your password, and the access tokens it keeps are encrypted. A Microsoft admin may need to approve OptiSigns once for your organization. You can then [manage OptiSigns in your Enterprise App](https://support.optisigns.com/hc/en-us/articles/4403616315539) settings in Azure.
-
-### Should I use Direct Login or a Service Principal?
-**Direct Login** is the quickest to set up and works on any plan that includes the Power BI app. The report keeps playing only while that Microsoft account stays valid. A **Service Principal** isn't tied to a person, so it suits organizations that manage many screens. It needs the Pro Plus, Engage or Enterprise plan.
-
-### How do I make the report fit my screen?
-In Power BI, open the report in **Edit** mode, go to **View**, and choose **Fit to page**. Then save the report.
-
-For the best results, we recommend the [OptiSigns Android Player](https://www.optisigns.com/product/hardware/android-player).
-
-### My report shows in the portal but not on my screen.
-This is usually a network issue, so check that the screen can reach Microsoft's Power BI sites. Samsung (SSSP) and LG (webOS) displays need a browser engine of Chromium 95 or later to show Power BI, which is a Microsoft requirement. If your display is older, the [Android Player](https://www.optisigns.com/product/hardware/android-player) is a reliable alternative.
-
-### My report lags or crashes.
-Large reports need more memory and processing power than many built-in TV players have. We recommend the [OptiSigns Pro Player](https://www.optisigns.com/product/hardware/pro-digital-signage-player) or [ProMax Player](https://www.optisigns.com/product/hardware/promax-digital-signage-player) for large reports.
-
-### Does this work with Power BI for US Government (GCC / GCC High)?
-Not directly. Government-cloud Power BI URLs aren't supported by the Power BI app. As a workaround, display the report with the [SharePoint app](https://support.optisigns.com/hc/en-us/articles/4414539282067-Displaying-SharePoint-Sites-on-OptiSigns).
-
----
-
 **"Please enter a valid Power BI or Fabric URL".** 
 
 The link must start with `https://app.powerbi.com/` or `https://app.fabric.microsoft.com/`. Copy it from the browser address bar, or use **Browse**.
@@ -233,6 +186,31 @@ Kiosk Mode works with reports only, and not while pages are selected. Untick eve
 Only team admins can create service principal connections. Ask an admin to add one under **Integrations** → **Power BI**.
 
 For more about publishing in Power BI, see Microsoft's guide [Publish and share in Power BI](https://docs.microsoft.com/en-us/power-bi/guided-learning/publishingandsharing?tutorial-step=11).
+
+---
+
+## Frequently Asked Questions
+Here are some of the most commonly asked questions we find with customers using Power BI on OptiSigns.
+
+### How does security work with the Power BI integration?
+OptiSigns connects through Microsoft's official Power BI APIs and asks only for read access. With **Direct Login**, you sign in on Microsoft's own page, so OptiSigns never sees your password, and the access tokens it keeps are encrypted. A Microsoft admin may need to approve OptiSigns once for your organization. You can then [manage OptiSigns in your Enterprise App](https://support.optisigns.com/hc/en-us/articles/4403616315539) settings in Azure.
+
+### Should I use Direct Login or a Service Principal?
+**Direct Login** is the quickest to set up and works on any plan that includes the Power BI app. The report keeps playing only while that Microsoft account stays valid. A **Service Principal** isn't tied to a person, so it suits organizations that manage many screens. It needs the Pro Plus, Engage or Enterprise plan.
+
+### How do I make the report fit my screen?
+In Power BI, open the report in **Edit** mode, go to **View**, and choose **Fit to page**. Then save the report.
+
+For the best results, we recommend the [OptiSigns Android Player](https://www.optisigns.com/product/hardware/android-player).
+
+### My report shows in the portal but not on my screen.
+This is usually a network issue, so check that the screen can reach Microsoft's Power BI sites. Samsung (SSSP) and LG (webOS) displays need a browser engine of Chromium 95 or later to show Power BI, which is a Microsoft requirement. If your display is older, the [Android Player](https://www.optisigns.com/product/hardware/android-player) is a reliable alternative.
+
+### My report lags or crashes.
+Large reports need more memory and processing power than many built-in TV players have. We recommend the [OptiSigns Pro Player](https://www.optisigns.com/product/hardware/pro-digital-signage-player) or [ProMax Player](https://www.optisigns.com/product/hardware/promax-digital-signage-player) for large reports.
+
+### Does this work with Power BI for US Government (GCC / GCC High)?
+Not directly. Government-cloud Power BI URLs aren't supported by the Power BI app. As a workaround, display the report with the [SharePoint app](https://support.optisigns.com/hc/en-us/articles/4414539282067-Displaying-SharePoint-Sites-on-OptiSigns).
 
 ### That’s all!
 OptiSigns is the leader in [digital signage software](https://www.optisigns.com/). If you have any additional questions, concerns or any feedback about OptiSigns, feel free to reach out to our support team at [support@optisigns.com](mailto:support@optisigns.com).
