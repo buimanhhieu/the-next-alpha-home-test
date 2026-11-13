@@ -4,11 +4,7 @@
 ### In this article, we'll show how to display your upcoming Eventbrite events on your digital signs with OptiSigns.
  
 - [What You'll Need](#WhatYoullNeed) 
--  [Creating an Eventbrite Events App](#CreatingAnEventbriteEventsApp) 
-  - [Continue with Eventbrite](#ContinueWithEventbrite) 
-  - [Use Public Events](#UsePublicEvents) 
-  
-- [Display](#Display) 
+- [Creating an Eventbrite Events App](#CreatingAnEventbriteEventsApp) 
 - [Deploying an Eventbrite Events App](#DeployingAnEventbriteEventsApp) 
 With the Eventbrite Events app, it's possible to display upcoming events from Eventbrite on your digital signs. Promote your own events, or those of a venue or organizer you love, complete with dates, venues, ticket prices and a QR code viewers can scan to get tickets.
 
