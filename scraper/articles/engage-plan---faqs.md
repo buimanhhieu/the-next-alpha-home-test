@@ -3,7 +3,7 @@
 
 **What is OptiSigns Engage Plan?**
 
-Engage is a new suite of apps and features designed to help you turn screens into two-way communications. It enables the creation of engaging, impressive, and interactive connections with your customers.
+Engage is a suite of apps and features designed to help you turn screens into two-way communications. It enables the creation of engaging, impressive, and interactive connections with your customers.
 
 Here are a few highlighted features in Engage:
 
