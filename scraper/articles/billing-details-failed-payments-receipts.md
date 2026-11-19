@@ -90,7 +90,7 @@ Click **Update Payment**, enter a working payment method and click **Save**. Onc
 
 If your subscription has been cancelled, **Update Payment** opens the plans instead. Choose your plan and number of screens to subscribe again. Your content is still there.
 
-If you pay by invoice or purchase order rather than by card, contact [support@optisigns.com](mailto:support@optisigns.com) about an overdue invoice.
+If you pay by invoice or purchase order rather than by card, contact [billing@optisigns.com](mailto:billing@optisigns.com) about an overdue invoice.
 
 ---
 
@@ -135,7 +135,7 @@ Billing pages are only available to the account Owner, a Super Admin or an Admin
 Check the code for typos and make sure it hasn't expired. If it still doesn't work, contact [support@optisigns.com](mailto:support@optisigns.com).
 
 #### Can I Pay by Invoice or Purchase Order?
-Contact [support@optisigns.com](mailto:support@optisigns.com) to ask about paying by invoice or purchase order.
+Contact [billing@optisigns.com](mailto:billing@optisigns.com) to ask about paying by invoice or purchase order.
 
 #### How Do I Change My Plan or Number of Screens?
 See [Billing: Changing Plans or Screen Counts](https://support.optisigns.com/hc/en-us/articles/1500000493782).
