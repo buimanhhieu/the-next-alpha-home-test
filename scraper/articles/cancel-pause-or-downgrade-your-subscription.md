@@ -31,7 +31,7 @@ Go to **Subscription Plan** and click **Update subscription**. Under **Number of
 
 You can't go below the number of screens you have paired. When you reach that number, clicking **−** opens **Screen Management**: "Move screens to OnHold or remove them to match your subscription."
 
-Click the pause button next to a screen to move it to **OnHold Devices**, or the bin to unpair it. A screen in OnHold keeps its settings but doesn't use a license, and it shows blank content until you move it back.
+Click the pause button next to a screen to move it to **OnHold Devices**, or the bin to unpair it. A screen in OnHold keeps its settings but doesn't use a license, and it shows a "Your Device is On Hold" message until you move it back.
 
 Then lower the number of screens and click **Continue to payment** to confirm the change. You get a credit for the unused time on the screens you removed, and it's applied to your next invoice.
 
