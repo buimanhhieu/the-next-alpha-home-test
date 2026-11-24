@@ -83,16 +83,16 @@ For details on specific add-ons, see [Engage Plan - FAQs](https://support.optisi
 Here are a few of the more common issues our customers may face when changing their plan or screen count, and how to solve them.
 
 #### I Don't See Subscription Plan or the Update Subscription Button
-Only the account Owner, or a Super Admin or Admin of the main account, can change billing. Ask one of them to make the change. If you see "Your subscription is managed by our billing team. Please contact support to change it.", your account has special pricing, so contact [support@optisigns.com](mailto:support@optisigns.com) and we'll update it for you.
+Only the account Owner, or a Super Admin or Admin of the main account, can change billing. Ask one of them to make the change. If you see "Your subscription is managed by our billing team. Please contact support to change it.", your account has special pricing, so contact [billing@optisigns.com](mailto:billing@optisigns.com) and we'll update it for you.
 
 #### I Can't Change My Currency
-Your currency is set when you first subscribe and can't be changed in the portal. Contact [support@optisigns.com](mailto:support@optisigns.com) if you need to pay in a different currency.
+Your currency is set when you first subscribe and can't be changed in the portal. Contact [billing@optisigns.com](mailto:billing@optisigns.com) if you need to pay in a different currency.
 
 #### I Can't Reduce My Number of Screens
 You can't go below the number of screens in use. Move the screens you no longer need to the OnHold Devices folder, or remove them, then reduce the count. See [About the OnHold Devices Folder](https://support.optisigns.com/hc/en-us/articles/1500003244381-About-the-OnHold-Devices-Folder).
 
 #### Can I Pay by Invoice or Purchase Order?
-Contact [support@optisigns.com](mailto:support@optisigns.com) to ask about paying by invoice or purchase order. To see which payment methods you can use online, see [Accepted Payment Methods](https://support.optisigns.com/hc/en-us/articles/34379983350163-Accepted-Payment-Methods).
+Contact [billing@optisigns.com](mailto:billing@optisigns.com) to ask about paying by invoice or purchase order. To see which payment methods you can use online, see [Accepted Payment Methods](https://support.optisigns.com/hc/en-us/articles/34379983350163-Accepted-Payment-Methods).
 
 #### Do You Offer a Non-Profit or Education Discount?
 See [Does OptiSigns Offer a Non-profit/Education Discount?](https://support.optisigns.com/hc/en-us/articles/360016252654-Does-OptiSigns-offer-Non-profit-Education-discount)

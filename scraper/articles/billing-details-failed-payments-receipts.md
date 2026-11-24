@@ -120,7 +120,7 @@ Update your payment method in **Payment Settings**. Saving a working card charge
 Some banks ask you to approve a payment, for example with a code or in your banking app. Click **Complete payment** on the banner or in **Billing History** to approve it on the secure payment page that opens in a new tab. You haven't been charged until you approve it. Updating your card doesn't complete this check.
 
 #### I Updated My Card but Still See the Past-Due Banner
-Refresh the page. If the banner is still there, check **Billing History**: if the invoice still shows **Failed Charge**, the new card was declined too, so try another card or contact your bank. If you've already paid and the banner stays, contact [support@optisigns.com](mailto:support@optisigns.com).
+Refresh the page. If the banner is still there, check **Billing History**: if the invoice still shows **Failed Charge**, the new card was declined too, so try another card or contact your bank. If you've already paid and the banner stays, contact [billing@optisigns.com](mailto:billing@optisigns.com).
 
 #### Can I Have My Invoices and Receipts Sent to a Different Email Address?
 Yes. Change your **Billing Email** in **Payment Settings**. See [Update Your Billing Email](#UpdateYourBillingEmail).
@@ -132,7 +132,7 @@ It appears only when your billing address is outside the US. Save your billing a
 Billing pages are only available to the account Owner, a Super Admin or an Admin. Ask one of them.
 
 #### "Invalid coupon code"
-Check the code for typos and make sure it hasn't expired. If it still doesn't work, contact [support@optisigns.com](mailto:support@optisigns.com).
+Check the code for typos and make sure it hasn't expired. If it still doesn't work, contact [billing@optisigns.com](mailto:billing@optisigns.com).
 
 #### Can I Pay by Invoice or Purchase Order?
 Contact [billing@optisigns.com](mailto:billing@optisigns.com) to ask about paying by invoice or purchase order.
