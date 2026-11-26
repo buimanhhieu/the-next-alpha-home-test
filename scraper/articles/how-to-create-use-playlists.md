@@ -136,11 +136,11 @@ Open the playlist, click the **More actions** menu and choose **Used In**. It li
 
 ## Related Articles
  
-- [How to Manage and Edit Your Playlist Settings](https://support.optisigns.com/hc/en-us/articles/28295074995859) 
-- [How to Create and Use Nested Playlists](https://support.optisigns.com/hc/en-us/articles/360043621953) 
-- [Creating and Using Schedules with OptiSigns](https://support.optisigns.com/hc/en-us/articles/360016981853) 
-- [Push Contents to your Screens](https://support.optisigns.com/hc/en-us/articles/18988049363859) 
-- [Feeds and How to Use Them](https://support.optisigns.com/hc/en-us/articles/24338756617747) 
+- [How to Manage and Edit Your Playlist Settings](https://support.optisigns.com/hc/en-us/articles/28295074995859?ref=related) 
+- [How to Create and Use Nested Playlists](https://support.optisigns.com/hc/en-us/articles/360043621953?ref=related) 
+- [Creating and Using Schedules with OptiSigns](https://support.optisigns.com/hc/en-us/articles/360016981853?ref=related) 
+- [Push Contents to your Screens](https://support.optisigns.com/hc/en-us/articles/18988049363859?ref=related) 
+- [Feeds and How to Use Them](https://support.optisigns.com/hc/en-us/articles/24338756617747?ref=related) 
 
 ### That’s all!
 OptiSigns is the leader in [digital signage software](https://www.optisigns.com/). If you have any additional questions, concerns or any feedback about OptiSigns, feel free to reach out to our support team at [support@optisigns.com](mailto:support@optisigns.com).

@@ -51,5 +51,14 @@ Back in **Edit Screen**, hit **Save**. Your Twitch stream will now play on your 
 
 Your Twitch app can also be displayed in a Playlist or Schedule, or as one zone of a [Split Screen](https://support.optisigns.com/hc/en-us/articles/360026559573).
 
+---
+
+## Related Articles
+ 
+- [How to Use YouTube with OptiSigns](https://support.optisigns.com/hc/en-us/articles/360051014713?ref=related) 
+- [How to use YouTube Live Schedule with OptiSigns](https://support.optisigns.com/hc/en-us/articles/360060284174?ref=related) 
+- [How to use Streaming App with OptiSigns](https://support.optisigns.com/hc/en-us/articles/16364134190355?ref=related) 
+- [How to Display Vimeo Videos with OptiSigns](https://support.optisigns.com/hc/en-us/articles/360016254994?ref=related) 
+
 ### That’s all!
 OptiSigns is the leader in [digital signage software](https://www.optisigns.com/). If you have any additional questions, concerns or any feedback about OptiSigns, feel free to reach out to our support team at [support@optisigns.com](mailto:support@optisigns.com).

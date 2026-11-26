@@ -80,5 +80,14 @@ Back in **Edit Screen**, hit **Save**. Your Vimeo video will now play on your sc
 
 Your Vimeo app can also be displayed in a Playlist or Schedule, or as one zone of a [Split Screen](https://support.optisigns.com/hc/en-us/articles/360026559573).
 
+---
+
+## Related Articles
+ 
+- [How to Use YouTube with OptiSigns](https://support.optisigns.com/hc/en-us/articles/360051014713?ref=related) 
+- [How to Use the Twitch App](https://support.optisigns.com/hc/en-us/articles/360046859534?ref=related) 
+- [Video Codec or Video Playback Issues and How to Re-encode Videos](https://support.optisigns.com/hc/en-us/articles/360038992973?ref=related) 
+- [How to use the Video Stream app](https://support.optisigns.com/hc/en-us/articles/8369526604435?ref=related) 
+
 ### That’s all!
 OptiSigns is the leader in [digital signage software](https://www.optisigns.com/). If you have any additional questions, concerns or any feedback about OptiSigns, feel free to reach out to our support team at [support@optisigns.com](mailto:support@optisigns.com).

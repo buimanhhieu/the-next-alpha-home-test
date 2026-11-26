@@ -1,5 +1,5 @@
-# How to set up SAML 2.0  with OptiSigns and Okta
-**Source:** https://support.optisigns.com/hc/en-us/articles/4404590815635-How-to-set-up-SAML-2-0-with-OptiSigns-and-Okta
+# How to Set Up SAML 2.0 with OptiSigns and Okta
+**Source:** https://support.optisigns.com/hc/en-us/articles/4404590815635-How-to-Set-Up-SAML-2-0-with-OptiSigns-and-Okta
 
 With Pro Plus and Enterprise plans, you can configure SAML 2.0 with OptiSigns via Okta.
 

@@ -51,6 +51,17 @@ Click Save.
 
  You can Preview to see how the ads rolls in.
 Live TV only shows up if you have [Live TV capture set up](https://support.optisigns.com/hc/en-us/articles/1500002042241)   
+---
+ 
+
+ 
+## Related Articles
+  
+- [How to use HDMI & other video input sources in with OptiSigns](https://support.optisigns.com/hc/en-us/articles/1500002042241?ref=related) 
+- [How to put Live TV on your screens with OptiSigns](https://support.optisigns.com/hc/en-us/articles/10159088954387?ref=related) 
+- [How to Create and Use the Split Screen App](https://support.optisigns.com/hc/en-us/articles/360026559573?ref=related) 
+- [How to use the Video Stream app](https://support.optisigns.com/hc/en-us/articles/8369526604435?ref=related) 
+ 
 ****
 #### That's all! Congratulations!
  You have created your Live TV with Ads app.

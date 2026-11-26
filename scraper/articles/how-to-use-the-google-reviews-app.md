@@ -128,5 +128,14 @@ Back in **Edit Screen**, hit **Save**. Your Google reviews will now display on y
 
 Your Google Reviews app can also be displayed in a Playlist or Schedule, or as one zone of a [Split Screen](https://support.optisigns.com/hc/en-us/articles/360026559573).
 
+---
+
+## Related Articles
+ 
+- [How to Create and Use the Yelp App](https://support.optisigns.com/hc/en-us/articles/360038769394?ref=related) 
+- [How to Use the Facebook Page App](https://support.optisigns.com/hc/en-us/articles/360023848334?ref=related) 
+- [How to Use the Follow Us App](https://support.optisigns.com/hc/en-us/articles/360049875794?ref=related) 
+- [How to Use the Social Mix App](https://support.optisigns.com/hc/en-us/articles/4403267825171?ref=related) 
+
 ### That’s all!
 OptiSigns is the leader in [digital signage software](https://www.optisigns.com/). If you have any additional questions, concerns or any feedback about OptiSigns, feel free to reach out to our support team at [support@optisigns.com](mailto:support@optisigns.com).
